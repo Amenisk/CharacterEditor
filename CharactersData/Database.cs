@@ -38,7 +38,7 @@ namespace CharactersData
             var database = client.GetDatabase("CharactersData");
             var collection = database.GetCollection<Character>("Characters");
 
-            return (Character) collection.Find(x => x.Name == name).FirstOrDefault();
+            return collection.Find(x => x.Name == name).FirstOrDefault();
         }
     }
 }

@@ -82,24 +82,7 @@ namespace CharacterEditor
             if (_selectedCharacter != null && _selectedCharacter.NumberOfPoints > 0 
                 && _selectedCharacter.Strength + 1 <= _selectedCharacter.MaxStrength)
             {
-                switch (_selectedCharacter.GetType().Name.ToString())
-                {
-                    case "Warrior":
-                        ((Warrior)_selectedCharacter).Strength++;
-                        break;
-
-                    case "Rogue":
-                        ((Rogue)_selectedCharacter).Strength++;
-                        break;
-
-                    case "Wizard":
-                        ((Wizard)_selectedCharacter).Strength++;
-                        break;
-
-                    default:
-                        break;
-                }
-
+                _selectedCharacter.Strength++;
                 AfterIncreasing();
             }
         }
@@ -109,24 +92,7 @@ namespace CharacterEditor
             if (_selectedCharacter != null && _selectedCharacter.NumberOfPoints > 0
                 && _selectedCharacter.Dexterity + 1 <= _selectedCharacter.MaxDexterity)
             {
-                switch (_selectedCharacter.GetType().Name.ToString())
-                {
-                    case "Warrior":
-                        ((Warrior)_selectedCharacter).Dexterity++;
-                        break;
-
-                    case "Rogue":
-                        ((Rogue)_selectedCharacter).Dexterity ++;
-                        break;
-
-                    case "Wizard":
-                        ((Wizard)_selectedCharacter).Dexterity++;
-                        break;
-
-                    default:
-                        break;
-                }
-
+                _selectedCharacter.Dexterity++;
                 AfterIncreasing();
             }          
         }
@@ -136,24 +102,7 @@ namespace CharacterEditor
             if (_selectedCharacter != null && _selectedCharacter.NumberOfPoints > 0
                 && _selectedCharacter.Constitution + 1 <= _selectedCharacter.MaxConstitution)
             {
-                switch (_selectedCharacter.GetType().Name.ToString())
-                {
-                    case "Warrior":
-                        ((Warrior)_selectedCharacter).Constitution++;
-                        break;
-
-                    case "Rogue":
-                        ((Rogue)_selectedCharacter).Constitution++;
-                        break;
-
-                    case "Wizard":
-                        ((Wizard)_selectedCharacter).Constitution++;
-                        break;
-
-                    default:
-                        break;
-                }
-
+                _selectedCharacter.Constitution++;
                 AfterIncreasing();
             }
         }
@@ -163,24 +112,7 @@ namespace CharacterEditor
             if (_selectedCharacter != null && _selectedCharacter.NumberOfPoints > 0
                 && _selectedCharacter.Inteligence + 1 <= _selectedCharacter.MaxInteligence)
             {
-                switch (_selectedCharacter.GetType().Name.ToString())
-                {
-                    case "Warrior":
-                        ((Warrior)_selectedCharacter).Inteligence++;
-                        break;
-
-                    case "Rogue":
-                        ((Rogue)_selectedCharacter).Inteligence++;
-                        break;
-
-                    case "Wizard":
-                        ((Wizard)_selectedCharacter).Inteligence++;
-                        break;
-
-                    default:
-                        break;
-                }
-
+                _selectedCharacter.Inteligence++;
                 AfterIncreasing();
             }
         }
