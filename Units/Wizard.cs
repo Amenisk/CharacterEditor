@@ -77,6 +77,21 @@ namespace Characters
             Dexterity = 20;
             Constitution = 15;
             Inteligence = 35;
+            ClassName = "Wizard";
+        }
+        
+        public Wizard(int strength, int dexterity, int constitution, int intiligence, string name)
+        {
+            MaxStrength = 45;
+            MaxDexterity = 70;
+            MaxConstitution = 60;
+            MaxInteligence = 250;
+            Strength = strength;
+            Dexterity = dexterity;
+            Constitution = constitution;
+            Inteligence = intiligence;
+            ClassName = "Rogue";
+            Name = name;
         }
     }
 }

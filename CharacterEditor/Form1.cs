@@ -121,11 +121,12 @@ namespace CharacterEditor
         {
             _selectedCharacter.NumberOfPoints--;
             FillingInCharacteristics();
+            isSaved = false;
         }
 
         private void btnSaveCharacter_Click(object sender, EventArgs e)
         {
-            if (!isSaved)
+            if (!isSaved && tbName.Text != "")
             {
                 Database.AddToDataBase(_selectedCharacter);
                 isSaved = true;
@@ -160,6 +161,7 @@ namespace CharacterEditor
             {
                 _selectedCharacter = Database.FindByName(cmbNames.SelectedItem.ToString());
                 FillingInCharacteristics();
+                isSaved = true;
             }
         }
 

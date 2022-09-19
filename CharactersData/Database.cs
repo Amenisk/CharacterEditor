@@ -37,8 +37,28 @@ namespace CharactersData
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("CharactersData");
             var collection = database.GetCollection<Character>("Characters");
+            var character = collection.Find(x => x.Name == name).FirstOrDefault();
 
-            return collection.Find(x => x.Name == name).FirstOrDefault();
+            switch(character.ClassName)
+            {
+                case "Warrior":
+                    return new Warrior(character.Strength, 
+                        character.Dexterity, character.MaxConstitution, 
+                        character.Inteligence, character.Name);
+
+                case "Rogue":
+                    return new Rogue(character.Strength,
+                       character.Dexterity, character.MaxConstitution, 
+                       character.Inteligence, character.Name);
+
+                case "Wizard":
+                    return new Wizard(character.Strength,
+                       character.Dexterity, character.MaxConstitution, 
+                       character.Inteligence, character.Name);
+
+                default:
+                    return character;
+            }
         }
     }
 }

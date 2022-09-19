@@ -8,6 +8,7 @@ namespace Characters
     public class Character
     {
         public ObjectId _id;
+        public string ClassName { get; protected set; } = "Character";
         public int MaxStrength { get; protected set; }
         public int MaxDexterity { get; protected set; }
         public int MaxConstitution { get; protected set; }
