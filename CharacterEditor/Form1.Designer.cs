@@ -250,6 +250,7 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(350, 510);
             this.pnlMain.TabIndex = 17;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // tbSelectFromList
             // 
@@ -402,6 +403,7 @@
             this.tbTextPhysDef.Size = new System.Drawing.Size(146, 26);
             this.tbTextPhysDef.TabIndex = 22;
             this.tbTextPhysDef.Text = "Physical defense";
+            this.tbTextPhysDef.TextChanged += new System.EventHandler(this.tbTextPhysDef_TextChanged);
             // 
             // tbTextMagDamage
             // 

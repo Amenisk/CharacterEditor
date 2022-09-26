@@ -1,5 +1,8 @@
 using Characters;
 using CharactersData;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Driver;
 
 namespace CharacterEditor
 {
@@ -10,6 +13,10 @@ namespace CharacterEditor
         public CharacterEditor()
         {
             InitializeComponent();
+            BsonClassMap.RegisterClassMap<Character>();
+            BsonClassMap.RegisterClassMap<Wizard>();
+            BsonClassMap.RegisterClassMap<Rogue>();
+            BsonClassMap.RegisterClassMap<Warrior>();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -19,6 +26,7 @@ namespace CharacterEditor
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cmbNames.Items.Clear();
             List<string> names = Database.OutputListNames();
             foreach (var name in names)
             {
@@ -168,6 +176,16 @@ namespace CharacterEditor
         private void cmbNames_SelectedValueChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void tbTextPhysDef_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

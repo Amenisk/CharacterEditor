@@ -92,7 +92,7 @@ namespace Characters
             ClassName = "Rogue";
         }
 
-        public Rogue(int strength, int dexterity, int constitution, int intiligence, string name)
+        public Rogue(int strength, int dexterity, int constitution, int intiligence, string name, int numOfPoints)
         {
             MaxStrength = 55;
             MaxDexterity = 250;
@@ -104,6 +104,7 @@ namespace Characters
             Inteligence = intiligence;
             ClassName = "Rogue";
             Name = name;
+            NumberOfPoints = numOfPoints;
         }
 	}
 }

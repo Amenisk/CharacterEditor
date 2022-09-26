@@ -2,11 +2,13 @@
 using System;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Characters
 {
     public class Character
     {
+        [BsonIgnoreIfDefault]
         public ObjectId _id;
         public string ClassName { get; protected set; } = "Character";
         public int MaxStrength { get; protected set; }
@@ -60,6 +62,12 @@ namespace Characters
         public double PhysDef { get; protected set; }
         public int MagDamage { get; protected set; }
 
+        [BsonIgnoreIfDefault]
+        public List<Item> inventory;
+        public void AddToInventory(Item item)
+        {
+            inventory.Add(item);
+        }
         public void SetName(string name)
         {
             Name = name;
