@@ -80,7 +80,8 @@ namespace Characters
             ClassName = "Wizard";
         }
         
-        public Wizard(int strength, int dexterity, int constitution, int intiligence, string name, int numOfPoints)
+        public Wizard(int strength, int dexterity, int constitution, 
+            int intiligence, string name, int numOfPoints, List<Item> items)
         {
             MaxStrength = 45;
             MaxDexterity = 70;
@@ -93,6 +94,7 @@ namespace Characters
             ClassName = "Rogue";
             Name = name;
             NumberOfPoints = numOfPoints;
+            inventory = items;
         }
     }
 }

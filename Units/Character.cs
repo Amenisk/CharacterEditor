@@ -63,7 +63,7 @@ namespace Characters
         public int MagDamage { get; protected set; }
 
         [BsonIgnoreIfDefault]
-        public List<Item> inventory;
+        public List<Item> inventory = new List<Item>();
         public void AddToInventory(Item item)
         {
             inventory.Add(item);

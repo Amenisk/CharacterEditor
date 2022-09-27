@@ -9,7 +9,8 @@ namespace CharacterEditor
     public partial class CharacterEditor : Form
     {
         private Character _selectedCharacter;
-        private bool isSaved;
+        private bool isLoaded;
+        private string loadName;
         public CharacterEditor()
         {
             InitializeComponent();
@@ -60,7 +61,6 @@ namespace CharacterEditor
                 _selectedCharacter.SetName(tbName.Text.ToString());
                 FillingInCharacteristics();
                 tbCountOfPoints.Text = _selectedCharacter.NumberOfPoints.ToString();
-                isSaved = false;
             }
             else
             {
@@ -129,16 +129,35 @@ namespace CharacterEditor
         {
             _selectedCharacter.NumberOfPoints--;
             FillingInCharacteristics();
-            isSaved = false;
         }
 
         private void btnSaveCharacter_Click(object sender, EventArgs e)
         {
-            if (!isSaved && tbName.Text != "")
+            if (tbName.Text != "")
             {
-                Database.AddToDataBase(_selectedCharacter);
-                isSaved = true;
+                if (!isLoaded)
+                {
+                    Database.AddToDataBase(_selectedCharacter);
+                }
+                else
+                {
+                    Database.ReplaceByName(loadName, _selectedCharacter);
+                }
                 Form1_Load(sender, e);
+
+                tbStrength.Text = "";
+                tbDexterity.Text = "";
+                tbConstitution.Text = "";
+                tbInteligence.Text = "";
+                tbHP.Text = "";
+                tbMP.Text = "";
+                tbDamage.Text = "";
+                tbPhysDef.Text = "";
+                tbMagDamage.Text = "";
+                tbCountOfPoints.Text = "";
+                tbName.Text = "";
+                cmbInventory.Items.Clear();
+                isLoaded = false;
             }
             
         }
@@ -169,7 +188,12 @@ namespace CharacterEditor
             {
                 _selectedCharacter = Database.FindByName(cmbNames.SelectedItem.ToString());
                 FillingInCharacteristics();
-                isSaved = true;
+                foreach(var item in _selectedCharacter.inventory)
+                {
+                    cmbInventory.Items.Add(item.Name);
+                }
+                isLoaded = true;
+                loadName = _selectedCharacter.Name;
             }
         }
 
@@ -186,6 +210,22 @@ namespace CharacterEditor
         private void pnlMain_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            if(tbAddItem.Text != "" && _selectedCharacter != null)
+            {
+                Item item = new Item(tbAddItem.Text);
+                _selectedCharacter.AddToInventory(item);
+                cmbInventory.Items.Add(tbAddItem.Text);
+                tbAddItem.Text = "";
+            }
         }
     }
 }

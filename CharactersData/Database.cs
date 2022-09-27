@@ -44,21 +44,32 @@ namespace CharactersData
                 case "Warrior":
                     return new Warrior(character.Strength, 
                         character.Dexterity, character.Constitution, 
-                        character.Inteligence, character.Name, character.NumberOfPoints);
+                        character.Inteligence, character.Name, 
+                        character.NumberOfPoints, character.inventory);
 
                 case "Rogue":
                     return new Rogue(character.Strength,
                        character.Dexterity, character.Constitution, 
-                       character.Inteligence, character.Name, character.NumberOfPoints);
+                       character.Inteligence, character.Name, 
+                       character.NumberOfPoints, character.inventory);
 
                 case "Wizard":
                     return new Wizard(character.Strength,
                        character.Dexterity, character.Constitution, 
-                       character.Inteligence, character.Name, character.NumberOfPoints);
+                       character.Inteligence, character.Name, 
+                       character.NumberOfPoints, character.inventory);
 
                 default:
                     return character;
             }
+        }
+
+        public static void ReplaceByName(string name, Character ch)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("CharactersData");
+            var collection = database.GetCollection<Character>("Characters");
+            collection.ReplaceOne(x => x.Name == name, ch);
         }
     }
 }

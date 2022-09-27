@@ -62,6 +62,10 @@
             this.tbTextPhysDef = new System.Windows.Forms.TextBox();
             this.tbTextMagDamage = new System.Windows.Forms.TextBox();
             this.pnlCharacteristics = new System.Windows.Forms.Panel();
+            this.tbInventory = new System.Windows.Forms.TextBox();
+            this.cmbInventory = new System.Windows.Forms.ComboBox();
+            this.tbAddItem = new System.Windows.Forms.TextBox();
+            this.btnAddItem = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlCharacteristics.SuspendLayout();
             this.SuspendLayout();
@@ -248,7 +252,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(350, 510);
+            this.pnlMain.Size = new System.Drawing.Size(333, 510);
             this.pnlMain.TabIndex = 17;
             this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
@@ -434,11 +438,51 @@
             this.pnlCharacteristics.Size = new System.Drawing.Size(236, 510);
             this.pnlCharacteristics.TabIndex = 24;
             // 
+            // tbInventory
+            // 
+            this.tbInventory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbInventory.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbInventory.Location = new System.Drawing.Point(339, 100);
+            this.tbInventory.Name = "tbInventory";
+            this.tbInventory.ReadOnly = true;
+            this.tbInventory.Size = new System.Drawing.Size(85, 26);
+            this.tbInventory.TabIndex = 25;
+            this.tbInventory.Text = "Inventory";
+            // 
+            // cmbInventory
+            // 
+            this.cmbInventory.FormattingEnabled = true;
+            this.cmbInventory.Location = new System.Drawing.Point(430, 103);
+            this.cmbInventory.Name = "cmbInventory";
+            this.cmbInventory.Size = new System.Drawing.Size(156, 25);
+            this.cmbInventory.TabIndex = 29;
+            // 
+            // tbAddItem
+            // 
+            this.tbAddItem.Location = new System.Drawing.Point(389, 195);
+            this.tbAddItem.Name = "tbAddItem";
+            this.tbAddItem.Size = new System.Drawing.Size(156, 25);
+            this.tbAddItem.TabIndex = 30;
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.Location = new System.Drawing.Point(430, 226);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(75, 26);
+            this.btnAddItem.TabIndex = 31;
+            this.btnAddItem.Text = "Create";
+            this.btnAddItem.UseVisualStyleBackColor = true;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            // 
             // CharacterEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 510);
+            this.Controls.Add(this.btnAddItem);
+            this.Controls.Add(this.tbAddItem);
+            this.Controls.Add(this.cmbInventory);
+            this.Controls.Add(this.tbInventory);
             this.Controls.Add(this.pnlCharacteristics);
             this.Controls.Add(this.pnlMain);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -450,6 +494,7 @@
             this.pnlCharacteristics.ResumeLayout(false);
             this.pnlCharacteristics.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -489,5 +534,9 @@
         private TextBox tbName;
         private ComboBox cmbNames;
         private TextBox tbSelectFromList;
+        private TextBox tbInventory;
+        private ComboBox cmbInventory;
+        private TextBox tbAddItem;
+        private Button btnAddItem;
     }
 }
