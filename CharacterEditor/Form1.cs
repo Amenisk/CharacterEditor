@@ -61,6 +61,8 @@ namespace CharacterEditor
                 _selectedCharacter.SetName(tbName.Text.ToString());
                 FillingInCharacteristics();
                 tbCountOfPoints.Text = _selectedCharacter.NumberOfPoints.ToString();
+                isLoaded = false;
+                FillingAddAbility();
             }
             else
             {
@@ -83,6 +85,9 @@ namespace CharacterEditor
             tbMagDamage.Text = _selectedCharacter.MagDamage.ToString();
             tbCountOfPoints.Text = _selectedCharacter.NumberOfPoints.ToString();
             tbName.Text = _selectedCharacter.Name.ToString();
+            tbLvlPoints.Text = _selectedCharacter.LevelPoints.ToString();
+            tbNextLvlPoints.Text = _selectedCharacter.NextLevelPoints.ToString();
+            tbLvl.Text = _selectedCharacter.Level.ToString();   
         }
 
         private void btnIncreaseStrength_Click(object sender, EventArgs e)
@@ -162,11 +167,6 @@ namespace CharacterEditor
             
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
@@ -177,23 +177,21 @@ namespace CharacterEditor
 
         }
 
-        private void tbChooseCharacter_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cmbNames_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbNames.SelectedItem != null)
             {
                 _selectedCharacter = Database.FindByName(cmbNames.SelectedItem.ToString());
                 FillingInCharacteristics();
+                cmbInventory.Items.Clear();
                 foreach(var item in _selectedCharacter.inventory)
                 {
                     cmbInventory.Items.Add(item.Name);
                 }
                 isLoaded = true;
                 loadName = _selectedCharacter.Name;
+                FillingAddAbility();
+                FillingAbilities();
             }
         }
 
@@ -225,6 +223,111 @@ namespace CharacterEditor
                 _selectedCharacter.AddToInventory(item);
                 cmbInventory.Items.Add(tbAddItem.Text);
                 tbAddItem.Text = "";
+            }
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbLvl_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPlus1000Lvl_Click(object sender, EventArgs e)
+        {
+            if (_selectedCharacter != null)
+            {
+                _selectedCharacter.LevelPoints += 1000;
+                tbLvlPoints.Text = _selectedCharacter.LevelPoints.ToString();
+                SwitchToNextLvl();
+            }
+        }
+
+        private void tbTextIncreaseExp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPlus100Lvl_Click(object sender, EventArgs e)
+        {
+            if(_selectedCharacter != null)
+            {
+                _selectedCharacter.LevelPoints += 100;
+                tbLvlPoints.Text = _selectedCharacter.LevelPoints.ToString();
+                SwitchToNextLvl();
+            }
+        }
+
+        private void btnPlus500Lvl_Click(object sender, EventArgs e)
+        {
+            if (_selectedCharacter != null)
+            {
+                _selectedCharacter.LevelPoints += 500;
+                tbLvlPoints.Text = _selectedCharacter.LevelPoints.ToString();
+                SwitchToNextLvl();
+            }
+        }
+
+        private void SwitchToNextLvl()
+        {
+            if (_selectedCharacter.LevelPoints >= _selectedCharacter.NextLevelPoints)
+            {
+                _selectedCharacter.Level++;
+                _selectedCharacter.NextLevelPoints += 1000 * _selectedCharacter.Level; 
+                tbLvl.Text = _selectedCharacter.Level.ToString();
+                tbNextLvlPoints.Text = _selectedCharacter.NextLevelPoints.ToString();
+                _selectedCharacter.NumberOfPoints += 5;
+                tbCountOfPoints.Text = _selectedCharacter.NumberOfPoints.ToString();
+
+                if (_selectedCharacter.Level % 3 == 0)
+                {
+                    _selectedCharacter.abilityCount++;
+                }
+
+                if (_selectedCharacter.abilityCount > 0)
+                {
+                    cmbAddAbility.Enabled = true;
+                    btnAddAbility.Enabled = true;
+                }
+            }
+        }
+
+        private void FillingAbilities()
+        {
+            cmbAbilities.Items.Clear();
+            foreach(var ability in _selectedCharacter.CharacterAbilities)
+            {
+                cmbAbilities.Items.Add(ability);
+            }
+        }
+
+        private void FillingAddAbility()
+        {
+            cmbAddAbility.Items.Clear();
+            foreach (var ability in _selectedCharacter.Abilities)
+            {
+                cmbAddAbility.Items.Add(ability);
+            }
+        }
+
+        private void btnAddAbility_Click(object sender, EventArgs e)
+        {
+            if(cmbAddAbility.SelectedItem != null)
+            {
+                _selectedCharacter.CharacterAbilities.Add(cmbAddAbility.SelectedItem.ToString());
+                _selectedCharacter.Abilities.Remove(cmbAddAbility.SelectedItem.ToString());
+                FillingAbilities();
+                FillingAddAbility();
+                _selectedCharacter.abilityCount--;
+
+                if(_selectedCharacter.abilityCount < 1)
+                {
+                    cmbAddAbility.Enabled = false;
+                    btnAddAbility.Enabled = false;
+                }
             }
         }
     }

@@ -62,10 +62,23 @@
             this.tbTextPhysDef = new System.Windows.Forms.TextBox();
             this.tbTextMagDamage = new System.Windows.Forms.TextBox();
             this.pnlCharacteristics = new System.Windows.Forms.Panel();
+            this.tbLvl = new System.Windows.Forms.TextBox();
+            this.tbTextIncreaseExp = new System.Windows.Forms.TextBox();
+            this.btnPlus1000Lvl = new System.Windows.Forms.Button();
+            this.btnPlus500Lvl = new System.Windows.Forms.Button();
+            this.btnPlus100Lvl = new System.Windows.Forms.Button();
+            this.tbBetweenLvl = new System.Windows.Forms.TextBox();
+            this.tbNextLvlPoints = new System.Windows.Forms.TextBox();
+            this.tbLvlPoints = new System.Windows.Forms.TextBox();
+            this.tbtextLvl = new System.Windows.Forms.TextBox();
             this.tbInventory = new System.Windows.Forms.TextBox();
             this.cmbInventory = new System.Windows.Forms.ComboBox();
             this.tbAddItem = new System.Windows.Forms.TextBox();
             this.btnAddItem = new System.Windows.Forms.Button();
+            this.cmbAbilities = new System.Windows.Forms.ComboBox();
+            this.tbTextAbilities = new System.Windows.Forms.TextBox();
+            this.cmbAddAbility = new System.Windows.Forms.ComboBox();
+            this.btnAddAbility = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlCharacteristics.SuspendLayout();
             this.SuspendLayout();
@@ -269,6 +282,7 @@
             // 
             // cmbNames
             // 
+            this.cmbNames.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNames.FormattingEnabled = true;
             this.cmbNames.Location = new System.Drawing.Point(167, 12);
             this.cmbNames.Name = "cmbNames";
@@ -338,7 +352,6 @@
             this.tbTextDexterity.Size = new System.Drawing.Size(79, 26);
             this.tbTextDexterity.TabIndex = 19;
             this.tbTextDexterity.Text = "Dexterity";
-            this.tbTextDexterity.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // tbTextStrength
             // 
@@ -361,7 +374,6 @@
             this.tbChooseCharacter.Size = new System.Drawing.Size(153, 26);
             this.tbChooseCharacter.TabIndex = 17;
             this.tbChooseCharacter.Text = "Choose character";
-            this.tbChooseCharacter.TextChanged += new System.EventHandler(this.tbChooseCharacter_TextChanged);
             // 
             // tbTextHP
             // 
@@ -422,6 +434,15 @@
             // 
             // pnlCharacteristics
             // 
+            this.pnlCharacteristics.Controls.Add(this.tbLvl);
+            this.pnlCharacteristics.Controls.Add(this.tbTextIncreaseExp);
+            this.pnlCharacteristics.Controls.Add(this.btnPlus1000Lvl);
+            this.pnlCharacteristics.Controls.Add(this.btnPlus500Lvl);
+            this.pnlCharacteristics.Controls.Add(this.btnPlus100Lvl);
+            this.pnlCharacteristics.Controls.Add(this.tbBetweenLvl);
+            this.pnlCharacteristics.Controls.Add(this.tbNextLvlPoints);
+            this.pnlCharacteristics.Controls.Add(this.tbLvlPoints);
+            this.pnlCharacteristics.Controls.Add(this.tbtextLvl);
             this.pnlCharacteristics.Controls.Add(this.tbHP);
             this.pnlCharacteristics.Controls.Add(this.tbTextMagDamage);
             this.pnlCharacteristics.Controls.Add(this.tbTextHP);
@@ -438,11 +459,106 @@
             this.pnlCharacteristics.Size = new System.Drawing.Size(236, 510);
             this.pnlCharacteristics.TabIndex = 24;
             // 
+            // tbLvl
+            // 
+            this.tbLvl.Location = new System.Drawing.Point(175, 4);
+            this.tbLvl.Name = "tbLvl";
+            this.tbLvl.ReadOnly = true;
+            this.tbLvl.Size = new System.Drawing.Size(47, 25);
+            this.tbLvl.TabIndex = 36;
+            // 
+            // tbTextIncreaseExp
+            // 
+            this.tbTextIncreaseExp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbTextIncreaseExp.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbTextIncreaseExp.Location = new System.Drawing.Point(3, 404);
+            this.tbTextIncreaseExp.Multiline = true;
+            this.tbTextIncreaseExp.Name = "tbTextIncreaseExp";
+            this.tbTextIncreaseExp.ReadOnly = true;
+            this.tbTextIncreaseExp.Size = new System.Drawing.Size(113, 52);
+            this.tbTextIncreaseExp.TabIndex = 35;
+            this.tbTextIncreaseExp.Text = "Increase\r\nexperience\r\n";
+            this.tbTextIncreaseExp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbTextIncreaseExp.TextChanged += new System.EventHandler(this.tbTextIncreaseExp_TextChanged);
+            // 
+            // btnPlus1000Lvl
+            // 
+            this.btnPlus1000Lvl.Location = new System.Drawing.Point(119, 451);
+            this.btnPlus1000Lvl.Name = "btnPlus1000Lvl";
+            this.btnPlus1000Lvl.Size = new System.Drawing.Size(75, 23);
+            this.btnPlus1000Lvl.TabIndex = 34;
+            this.btnPlus1000Lvl.Text = "+ 1000";
+            this.btnPlus1000Lvl.UseVisualStyleBackColor = true;
+            this.btnPlus1000Lvl.Click += new System.EventHandler(this.btnPlus1000Lvl_Click);
+            // 
+            // btnPlus500Lvl
+            // 
+            this.btnPlus500Lvl.Location = new System.Drawing.Point(119, 422);
+            this.btnPlus500Lvl.Name = "btnPlus500Lvl";
+            this.btnPlus500Lvl.Size = new System.Drawing.Size(75, 23);
+            this.btnPlus500Lvl.TabIndex = 33;
+            this.btnPlus500Lvl.Text = "+ 500";
+            this.btnPlus500Lvl.UseVisualStyleBackColor = true;
+            this.btnPlus500Lvl.Click += new System.EventHandler(this.btnPlus500Lvl_Click);
+            // 
+            // btnPlus100Lvl
+            // 
+            this.btnPlus100Lvl.Location = new System.Drawing.Point(119, 393);
+            this.btnPlus100Lvl.Name = "btnPlus100Lvl";
+            this.btnPlus100Lvl.Size = new System.Drawing.Size(75, 23);
+            this.btnPlus100Lvl.TabIndex = 32;
+            this.btnPlus100Lvl.Text = "+ 100";
+            this.btnPlus100Lvl.UseVisualStyleBackColor = true;
+            this.btnPlus100Lvl.Click += new System.EventHandler(this.btnPlus100Lvl_Click);
+            // 
+            // tbBetweenLvl
+            // 
+            this.tbBetweenLvl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbBetweenLvl.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBetweenLvl.Location = new System.Drawing.Point(143, 29);
+            this.tbBetweenLvl.Name = "tbBetweenLvl";
+            this.tbBetweenLvl.ReadOnly = true;
+            this.tbBetweenLvl.Size = new System.Drawing.Size(10, 26);
+            this.tbBetweenLvl.TabIndex = 31;
+            this.tbBetweenLvl.Text = "/";
+            // 
+            // tbNextLvlPoints
+            // 
+            this.tbNextLvlPoints.BackColor = System.Drawing.SystemColors.Menu;
+            this.tbNextLvlPoints.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbNextLvlPoints.Location = new System.Drawing.Point(159, 35);
+            this.tbNextLvlPoints.Name = "tbNextLvlPoints";
+            this.tbNextLvlPoints.Size = new System.Drawing.Size(74, 18);
+            this.tbNextLvlPoints.TabIndex = 30;
+            this.tbNextLvlPoints.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
+            // 
+            // tbLvlPoints
+            // 
+            this.tbLvlPoints.BackColor = System.Drawing.SystemColors.Menu;
+            this.tbLvlPoints.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLvlPoints.Location = new System.Drawing.Point(63, 34);
+            this.tbLvlPoints.Name = "tbLvlPoints";
+            this.tbLvlPoints.Size = new System.Drawing.Size(74, 18);
+            this.tbLvlPoints.TabIndex = 29;
+            this.tbLvlPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbLvlPoints.TextChanged += new System.EventHandler(this.tbLvl_TextChanged);
+            // 
+            // tbtextLvl
+            // 
+            this.tbtextLvl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbtextLvl.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbtextLvl.Location = new System.Drawing.Point(143, 3);
+            this.tbtextLvl.Name = "tbtextLvl";
+            this.tbtextLvl.ReadOnly = true;
+            this.tbtextLvl.Size = new System.Drawing.Size(26, 26);
+            this.tbtextLvl.TabIndex = 28;
+            this.tbtextLvl.Text = "lvl";
+            // 
             // tbInventory
             // 
             this.tbInventory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbInventory.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbInventory.Location = new System.Drawing.Point(339, 100);
+            this.tbInventory.Location = new System.Drawing.Point(339, 62);
             this.tbInventory.Name = "tbInventory";
             this.tbInventory.ReadOnly = true;
             this.tbInventory.Size = new System.Drawing.Size(85, 26);
@@ -451,34 +567,80 @@
             // 
             // cmbInventory
             // 
+            this.cmbInventory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbInventory.FormattingEnabled = true;
-            this.cmbInventory.Location = new System.Drawing.Point(430, 103);
+            this.cmbInventory.Location = new System.Drawing.Point(430, 65);
             this.cmbInventory.Name = "cmbInventory";
             this.cmbInventory.Size = new System.Drawing.Size(156, 25);
             this.cmbInventory.TabIndex = 29;
             // 
             // tbAddItem
             // 
-            this.tbAddItem.Location = new System.Drawing.Point(389, 195);
+            this.tbAddItem.Location = new System.Drawing.Point(389, 109);
             this.tbAddItem.Name = "tbAddItem";
             this.tbAddItem.Size = new System.Drawing.Size(156, 25);
             this.tbAddItem.TabIndex = 30;
             // 
             // btnAddItem
             // 
-            this.btnAddItem.Location = new System.Drawing.Point(430, 226);
+            this.btnAddItem.Location = new System.Drawing.Point(419, 140);
             this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(75, 26);
+            this.btnAddItem.Size = new System.Drawing.Size(96, 26);
             this.btnAddItem.TabIndex = 31;
-            this.btnAddItem.Text = "Create";
+            this.btnAddItem.Text = "Create item";
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            // 
+            // cmbAbilities
+            // 
+            this.cmbAbilities.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAbilities.FormattingEnabled = true;
+            this.cmbAbilities.Location = new System.Drawing.Point(430, 195);
+            this.cmbAbilities.Name = "cmbAbilities";
+            this.cmbAbilities.Size = new System.Drawing.Size(156, 25);
+            this.cmbAbilities.TabIndex = 32;
+            // 
+            // tbTextAbilities
+            // 
+            this.tbTextAbilities.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbTextAbilities.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbTextAbilities.Location = new System.Drawing.Point(339, 194);
+            this.tbTextAbilities.Name = "tbTextAbilities";
+            this.tbTextAbilities.ReadOnly = true;
+            this.tbTextAbilities.Size = new System.Drawing.Size(85, 26);
+            this.tbTextAbilities.TabIndex = 33;
+            this.tbTextAbilities.Text = "Abilities";
+            // 
+            // cmbAddAbility
+            // 
+            this.cmbAddAbility.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAddAbility.Enabled = false;
+            this.cmbAddAbility.FormattingEnabled = true;
+            this.cmbAddAbility.Location = new System.Drawing.Point(389, 245);
+            this.cmbAddAbility.Name = "cmbAddAbility";
+            this.cmbAddAbility.Size = new System.Drawing.Size(156, 25);
+            this.cmbAddAbility.TabIndex = 34;
+            // 
+            // btnAddAbility
+            // 
+            this.btnAddAbility.Enabled = false;
+            this.btnAddAbility.Location = new System.Drawing.Point(419, 280);
+            this.btnAddAbility.Name = "btnAddAbility";
+            this.btnAddAbility.Size = new System.Drawing.Size(96, 26);
+            this.btnAddAbility.TabIndex = 35;
+            this.btnAddAbility.Text = "Add ability";
+            this.btnAddAbility.UseVisualStyleBackColor = true;
+            this.btnAddAbility.Click += new System.EventHandler(this.btnAddAbility_Click);
             // 
             // CharacterEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 510);
+            this.Controls.Add(this.btnAddAbility);
+            this.Controls.Add(this.cmbAddAbility);
+            this.Controls.Add(this.tbTextAbilities);
+            this.Controls.Add(this.cmbAbilities);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.tbAddItem);
             this.Controls.Add(this.cmbInventory);
@@ -538,5 +700,18 @@
         private ComboBox cmbInventory;
         private TextBox tbAddItem;
         private Button btnAddItem;
+        private TextBox tbNextLvlPoints;
+        private TextBox tbLvlPoints;
+        private TextBox tbtextLvl;
+        private TextBox tbBetweenLvl;
+        private Button btnPlus1000Lvl;
+        private Button btnPlus500Lvl;
+        private Button btnPlus100Lvl;
+        private TextBox tbTextIncreaseExp;
+        private TextBox tbLvl;
+        private ComboBox cmbAbilities;
+        private TextBox tbTextAbilities;
+        private ComboBox cmbAddAbility;
+        private Button btnAddAbility;
     }
 }

@@ -16,7 +16,17 @@ namespace Characters
         public int MaxConstitution { get; protected set; }
         public int MaxInteligence { get; protected set; }
         public string Name { get; protected set; }
-        public int NumberOfPoints { get; set; } = 99;
+        public int NumberOfPoints { get; set; } = 5;
+        public int Level { get; set; } = 1;
+        public int LevelPoints { get; set; }
+        public int NextLevelPoints { get; set; } = 1000;
+
+        public int abilityCount;
+
+        public List<string> Abilities { get; protected set; } = new List<string>() {"Fireball", "Double jerk", "Resistance to poison", 
+            "Invisibility", "Night vision", "Leap of faith", "Rage", "Clonning", "Water explosion", "Walking on water"};
+
+        public List<string> CharacterAbilities { get; protected set; } = new List<string>();
 
         protected int strength;
         protected int dexterity;
@@ -64,6 +74,29 @@ namespace Characters
 
         [BsonIgnoreIfDefault]
         public List<Item> inventory = new List<Item>();
+
+        public Character()
+        {
+
+        }
+        public Character(int strength, int dexterity, int constitution,
+            int intiligence, string name, int numOfPoints,
+            List<Item> items, List<string> charAbil, List<string> abil,
+            int lvl, int lvlPoints, int nextLvlPoints)
+        {
+            Strength = strength;
+            Dexterity = dexterity;
+            Constitution = constitution;
+            Inteligence = intiligence;
+            Name = name;
+            NumberOfPoints = numOfPoints;
+            inventory = items;
+            CharacterAbilities = charAbil;
+            Abilities = abil;
+            Level = lvl;
+            LevelPoints = lvlPoints;
+            NextLevelPoints = nextLvlPoints;
+        }
         public void AddToInventory(Item item)
         {
             inventory.Add(item);

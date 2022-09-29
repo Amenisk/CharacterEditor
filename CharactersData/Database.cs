@@ -45,19 +45,25 @@ namespace CharactersData
                     return new Warrior(character.Strength, 
                         character.Dexterity, character.Constitution, 
                         character.Inteligence, character.Name, 
-                        character.NumberOfPoints, character.inventory);
+                        character.NumberOfPoints, character.inventory,
+                        character.CharacterAbilities, character.Abilities, 
+                        character.Level, character.LevelPoints, character.NextLevelPoints);
 
                 case "Rogue":
                     return new Rogue(character.Strength,
                        character.Dexterity, character.Constitution, 
                        character.Inteligence, character.Name, 
-                       character.NumberOfPoints, character.inventory);
+                       character.NumberOfPoints, character.inventory,
+                       character.CharacterAbilities, character.Abilities,
+                       character.Level, character.LevelPoints, character.NextLevelPoints);
 
                 case "Wizard":
                     return new Wizard(character.Strength,
                        character.Dexterity, character.Constitution, 
                        character.Inteligence, character.Name, 
-                       character.NumberOfPoints, character.inventory);
+                       character.NumberOfPoints, character.inventory,
+                       character.CharacterAbilities, character.Abilities,
+                       character.Level, character.LevelPoints, character.NextLevelPoints);
 
                 default:
                     return character;

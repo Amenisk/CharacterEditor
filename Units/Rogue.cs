@@ -93,20 +93,17 @@ namespace Characters
         }
 
         public Rogue(int strength, int dexterity, int constitution, 
-            int intiligence, string name, int numOfPoints, List<Item> items)
+            int intiligence, string name, int numOfPoints, 
+            List<Item> items, List<string> charAbil, List<string> abil, 
+            int lvl, int lvlPoints, int nextLvlPoints) : base(strength, dexterity, 
+                constitution, intiligence, name, numOfPoints, items, 
+                charAbil, abil, lvl, lvlPoints, nextLvlPoints)
         {
             MaxStrength = 55;
             MaxDexterity = 250;
             MaxConstitution = 80;
             MaxInteligence = 70;
-            Strength = strength;
-            Dexterity = dexterity;
-            Constitution = constitution;
-            Inteligence = intiligence;
             ClassName = "Rogue";
-            Name = name;
-            NumberOfPoints = numOfPoints;
-            inventory = items;
         }
 	}
 }
