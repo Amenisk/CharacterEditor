@@ -47,7 +47,8 @@ namespace CharactersData
                         character.Inteligence, character.Name, 
                         character.NumberOfPoints, character.inventory,
                         character.CharacterAbilities, character.Abilities, 
-                        character.Level, character.LevelPoints, character.NextLevelPoints);
+                        character.Level, character.LevelPoints, 
+                        character.NextLevelPoints, character.abilityCount);
 
                 case "Rogue":
                     return new Rogue(character.Strength,
@@ -55,7 +56,8 @@ namespace CharactersData
                        character.Inteligence, character.Name, 
                        character.NumberOfPoints, character.inventory,
                        character.CharacterAbilities, character.Abilities,
-                       character.Level, character.LevelPoints, character.NextLevelPoints);
+                       character.Level, character.LevelPoints, 
+                       character.NextLevelPoints, character.abilityCount);
 
                 case "Wizard":
                     return new Wizard(character.Strength,
@@ -63,7 +65,8 @@ namespace CharactersData
                        character.Inteligence, character.Name, 
                        character.NumberOfPoints, character.inventory,
                        character.CharacterAbilities, character.Abilities,
-                       character.Level, character.LevelPoints, character.NextLevelPoints);
+                       character.Level, character.LevelPoints, 
+                       character.NextLevelPoints, character.abilityCount);
 
                 default:
                     return character;

@@ -79,15 +79,10 @@ namespace Characters
         {
 
         }
-        public Character(int strength, int dexterity, int constitution,
-            int intiligence, string name, int numOfPoints,
+        public Character(string name, int numOfPoints,
             List<Item> items, List<string> charAbil, List<string> abil,
-            int lvl, int lvlPoints, int nextLvlPoints)
+            int lvl, int lvlPoints, int nextLvlPoints, int abilCount)
         {
-            Strength = strength;
-            Dexterity = dexterity;
-            Constitution = constitution;
-            Inteligence = intiligence;
             Name = name;
             NumberOfPoints = numOfPoints;
             inventory = items;
@@ -96,6 +91,8 @@ namespace Characters
             Level = lvl;
             LevelPoints = lvlPoints;
             NextLevelPoints = nextLvlPoints;
+            abilityCount = abilCount;
+
         }
         public void AddToInventory(Item item)
         {

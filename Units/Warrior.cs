@@ -94,18 +94,22 @@ namespace Characters
             ClassName = "Warrior";
         }
 
-        public Warrior(int strength, int dexterity, int constitution, 
-            int intiligence, string name, int numOfPoints, 
+        public Warrior(int strength, int dexterity, int constitution,
+            int intiligence, string name, int numOfPoints,
             List<Item> items, List<string> charAbil, List<string> abil,
-            int lvl, int lvlPoints, int nextLvlPoints) : base(strength, dexterity,
-                constitution, intiligence, name, numOfPoints, items,
-                charAbil, abil, lvl, lvlPoints, nextLvlPoints)
+            int lvl, int lvlPoints, int nextLvlPoints, int abilCount)
+            : base(name, numOfPoints, items, charAbil, abil, lvl,
+                    lvlPoints, nextLvlPoints, abilCount)
         {
             MaxStrength = 250;
             MaxDexterity = 70;
             MaxConstitution = 100;
             MaxInteligence = 50;
             ClassName = "Warrior";
+            Strength = strength;
+            Dexterity = dexterity;
+            Constitution = constitution;
+            Inteligence = intiligence;
         }
 
     }
