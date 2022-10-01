@@ -132,6 +132,7 @@ namespace CharacterEditor
                 }
                 else
                 {
+                    _selectedCharacter.SetName(tbName.Text);
                     Database.ReplaceByName(loadName, _selectedCharacter);
                 }
                 Form1_Load(sender, e);
