@@ -57,7 +57,6 @@ namespace Characters
 
                     constitution = value;
                 }
-
             }
         }
         public override int Inteligence

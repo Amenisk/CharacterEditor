@@ -7,7 +7,7 @@ namespace CharactersData
 {
     static public class Database
     {
-        public static void AddToDataBase(Character ch)
+        public static void AddToDatabase(Character ch)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("CharactersData");

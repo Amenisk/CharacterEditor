@@ -128,7 +128,7 @@ namespace CharacterEditor
             {
                 if (!isLoaded)
                 {
-                    Database.AddToDataBase(_selectedCharacter);
+                    Database.AddToDatabase(_selectedCharacter);
                 }
                 else
                 {
@@ -148,6 +148,9 @@ namespace CharacterEditor
                 tbMagDamage.Text = "";
                 tbCountOfPoints.Text = "";
                 tbName.Text = "";
+                tbLvl.Text = "";
+                tbNextLvlPoints.Text = "";
+                tbLvlPoints.Text = "";
                 cmbInventory.Items.Clear();
                 isLoaded = false;
             }
@@ -174,8 +177,7 @@ namespace CharacterEditor
         {
             if(tbAddItem.Text != "" && _selectedCharacter != null)
             {
-                Item item = new Item(tbAddItem.Text);
-                _selectedCharacter.AddToInventory(item);
+                _selectedCharacter.AddToInventory(new Item(tbAddItem.Text));
                 cmbInventory.Items.Add(tbAddItem.Text);
                 tbAddItem.Text = "";
             }
