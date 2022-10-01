@@ -96,7 +96,6 @@
             this.lbCharacters.Name = "lbCharacters";
             this.lbCharacters.Size = new System.Drawing.Size(90, 100);
             this.lbCharacters.TabIndex = 0;
-            this.lbCharacters.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // tbStrength
             // 
@@ -267,7 +266,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(333, 510);
             this.pnlMain.TabIndex = 17;
-            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // tbSelectFromList
             // 
@@ -289,7 +287,6 @@
             this.cmbNames.Size = new System.Drawing.Size(156, 25);
             this.cmbNames.TabIndex = 28;
             this.cmbNames.SelectedIndexChanged += new System.EventHandler(this.cmbNames_SelectedIndexChanged);
-            this.cmbNames.SelectedValueChanged += new System.EventHandler(this.cmbNames_SelectedValueChanged);
             // 
             // tbTextName
             // 
@@ -340,7 +337,6 @@
             this.tbTextConstitution.Size = new System.Drawing.Size(110, 26);
             this.tbTextConstitution.TabIndex = 20;
             this.tbTextConstitution.Text = "Constitution";
-            this.tbTextConstitution.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // tbTextDexterity
             // 
@@ -385,7 +381,6 @@
             this.tbTextHP.Size = new System.Drawing.Size(34, 26);
             this.tbTextHP.TabIndex = 19;
             this.tbTextHP.Text = "HP";
-            this.tbTextHP.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tbTextMP
             // 
@@ -419,7 +414,6 @@
             this.tbTextPhysDef.Size = new System.Drawing.Size(146, 26);
             this.tbTextPhysDef.TabIndex = 22;
             this.tbTextPhysDef.Text = "Physical defense";
-            this.tbTextPhysDef.TextChanged += new System.EventHandler(this.tbTextPhysDef_TextChanged);
             // 
             // tbTextMagDamage
             // 
@@ -479,7 +473,6 @@
             this.tbTextIncreaseExp.TabIndex = 35;
             this.tbTextIncreaseExp.Text = "Increase\r\nexperience\r\n";
             this.tbTextIncreaseExp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbTextIncreaseExp.TextChanged += new System.EventHandler(this.tbTextIncreaseExp_TextChanged);
             // 
             // btnPlus1000Lvl
             // 
@@ -530,7 +523,6 @@
             this.tbNextLvlPoints.Name = "tbNextLvlPoints";
             this.tbNextLvlPoints.Size = new System.Drawing.Size(74, 18);
             this.tbNextLvlPoints.TabIndex = 30;
-            this.tbNextLvlPoints.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
             // 
             // tbLvlPoints
             // 
@@ -541,7 +533,6 @@
             this.tbLvlPoints.Size = new System.Drawing.Size(74, 18);
             this.tbLvlPoints.TabIndex = 29;
             this.tbLvlPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbLvlPoints.TextChanged += new System.EventHandler(this.tbLvl_TextChanged);
             // 
             // tbtextLvl
             // 

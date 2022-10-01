@@ -19,12 +19,6 @@ namespace CharacterEditor
             BsonClassMap.RegisterClassMap<Rogue>();
             BsonClassMap.RegisterClassMap<Warrior>();
         }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             cmbNames.Items.Clear();
@@ -35,7 +29,6 @@ namespace CharacterEditor
             }
             
         }
-
         private void btnCreateCharacter_Click(object sender, EventArgs e)
         {
             if (lbCharacters.SelectedItem != null && tbName.Text != "")
@@ -71,7 +64,6 @@ namespace CharacterEditor
             }
 
         }
-
         private void FillingInCharacteristics()
         {
             tbStrength.Text = _selectedCharacter.Strength.ToString();
@@ -89,7 +81,6 @@ namespace CharacterEditor
             tbNextLvlPoints.Text = _selectedCharacter.NextLevelPoints.ToString();
             tbLvl.Text = _selectedCharacter.Level.ToString();   
         }
-
         private void btnIncreaseStrength_Click(object sender, EventArgs e)
         {
             if (_selectedCharacter != null && _selectedCharacter.NumberOfPoints > 0 
@@ -99,7 +90,6 @@ namespace CharacterEditor
                 AfterIncreasing();
             }
         }
-
         private void btnIncreaseDexterity_Click(object sender, EventArgs e)
         {
             if (_selectedCharacter != null && _selectedCharacter.NumberOfPoints > 0
@@ -109,7 +99,6 @@ namespace CharacterEditor
                 AfterIncreasing();
             }          
         }
-
         private void btnIncreaseConstitution_Click(object sender, EventArgs e)
         {
             if (_selectedCharacter != null && _selectedCharacter.NumberOfPoints > 0
@@ -119,7 +108,6 @@ namespace CharacterEditor
                 AfterIncreasing();
             }
         }
-
         private void btnIncreaseInteligence_Click(object sender, EventArgs e)
         {
             if (_selectedCharacter != null && _selectedCharacter.NumberOfPoints > 0
@@ -129,13 +117,11 @@ namespace CharacterEditor
                 AfterIncreasing();
             }
         }
-
         private void AfterIncreasing()
         {
             _selectedCharacter.NumberOfPoints--;
             FillingInCharacteristics();
         }
-
         private void btnSaveCharacter_Click(object sender, EventArgs e)
         {
             if (tbName.Text != "")
@@ -166,17 +152,6 @@ namespace CharacterEditor
             }
             
         }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cmbNames_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbNames.SelectedItem != null)
@@ -194,27 +169,6 @@ namespace CharacterEditor
                 FillingAbilities();
             }
         }
-
-        private void cmbNames_SelectedValueChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void tbTextPhysDef_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlMain_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAddItem_Click(object sender, EventArgs e)
         {
             if(tbAddItem.Text != "" && _selectedCharacter != null)
@@ -225,17 +179,6 @@ namespace CharacterEditor
                 tbAddItem.Text = "";
             }
         }
-
-        private void textBox1_TextChanged_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbLvl_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnPlus1000Lvl_Click(object sender, EventArgs e)
         {
             if (_selectedCharacter != null)
@@ -245,12 +188,6 @@ namespace CharacterEditor
                 SwitchToNextLvl();
             }
         }
-
-        private void tbTextIncreaseExp_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnPlus100Lvl_Click(object sender, EventArgs e)
         {
             if(_selectedCharacter != null)
@@ -260,7 +197,6 @@ namespace CharacterEditor
                 SwitchToNextLvl();
             }
         }
-
         private void btnPlus500Lvl_Click(object sender, EventArgs e)
         {
             if (_selectedCharacter != null)
@@ -270,7 +206,6 @@ namespace CharacterEditor
                 SwitchToNextLvl();
             }
         }
-
         private void SwitchToNextLvl()
         {
             if (_selectedCharacter.LevelPoints >= _selectedCharacter.NextLevelPoints)
@@ -294,7 +229,6 @@ namespace CharacterEditor
                 }
             }
         }
-
         private void FillingAbilities()
         {
             cmbAbilities.Items.Clear();
@@ -303,7 +237,6 @@ namespace CharacterEditor
                 cmbAbilities.Items.Add(ability);
             }
         }
-
         private void FillingAddAbility()
         {
             cmbAddAbility.Items.Clear();
@@ -312,7 +245,6 @@ namespace CharacterEditor
                 cmbAddAbility.Items.Add(ability);
             }
         }
-
         private void btnAddAbility_Click(object sender, EventArgs e)
         {
             if(cmbAddAbility.SelectedItem != null)
