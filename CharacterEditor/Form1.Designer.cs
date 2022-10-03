@@ -640,7 +640,6 @@
             this.Controls.Add(this.pnlMain);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "CharacterEditor";
-            this.Text = "Character editor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();

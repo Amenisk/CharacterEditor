@@ -10,7 +10,6 @@ namespace CharacterEditor
         [STAThread]
         static void Main()
         {
-
             ApplicationConfiguration.Initialize();
             Application.Run(new CharacterEditor());
         }

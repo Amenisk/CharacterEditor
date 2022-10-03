@@ -151,7 +151,7 @@ namespace CharacterEditor
                 tbLvl.Text = "";
                 tbNextLvlPoints.Text = "";
                 tbLvlPoints.Text = "";
-                cmbInventory.Items.Clear();
+
                 isLoaded = false;
             }
             
