@@ -612,39 +612,37 @@
             // 
             // btnSelectWeapon
             // 
-            this.btnSelectWeapon.Enabled = false;
             this.btnSelectWeapon.Location = new System.Drawing.Point(501, 114);
             this.btnSelectWeapon.Name = "btnSelectWeapon";
             this.btnSelectWeapon.Size = new System.Drawing.Size(104, 26);
             this.btnSelectWeapon.TabIndex = 37;
             this.btnSelectWeapon.Text = "Select weapon";
             this.btnSelectWeapon.UseVisualStyleBackColor = true;
-            this.btnSelectWeapon.Click += new System.EventHandler(this.button1_Click);
+            this.btnSelectWeapon.Click += new System.EventHandler(this.btnSelectWeapon_Click);
             // 
             // cmbWeapons
             // 
             this.cmbWeapons.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWeapons.Enabled = false;
             this.cmbWeapons.FormattingEnabled = true;
             this.cmbWeapons.Location = new System.Drawing.Point(339, 114);
             this.cmbWeapons.Name = "cmbWeapons";
             this.cmbWeapons.Size = new System.Drawing.Size(156, 25);
             this.cmbWeapons.TabIndex = 36;
+            this.cmbWeapons.SelectedIndexChanged += new System.EventHandler(this.cmbWeapons_SelectedIndexChanged);
             // 
             // btnSelecthelmet
             // 
-            this.btnSelecthelmet.Enabled = false;
             this.btnSelecthelmet.Location = new System.Drawing.Point(501, 165);
             this.btnSelecthelmet.Name = "btnSelecthelmet";
             this.btnSelecthelmet.Size = new System.Drawing.Size(104, 26);
             this.btnSelecthelmet.TabIndex = 39;
             this.btnSelecthelmet.Text = "Select helmet";
             this.btnSelecthelmet.UseVisualStyleBackColor = true;
+            this.btnSelecthelmet.Click += new System.EventHandler(this.btnSelecthelmet_Click);
             // 
             // cmbHelmets
             // 
             this.cmbHelmets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbHelmets.Enabled = false;
             this.cmbHelmets.FormattingEnabled = true;
             this.cmbHelmets.Location = new System.Drawing.Point(339, 165);
             this.cmbHelmets.Name = "cmbHelmets";
@@ -653,18 +651,17 @@
             // 
             // btnSelectArmor
             // 
-            this.btnSelectArmor.Enabled = false;
             this.btnSelectArmor.Location = new System.Drawing.Point(501, 217);
             this.btnSelectArmor.Name = "btnSelectArmor";
             this.btnSelectArmor.Size = new System.Drawing.Size(104, 26);
             this.btnSelectArmor.TabIndex = 41;
             this.btnSelectArmor.Text = "Select armor";
             this.btnSelectArmor.UseVisualStyleBackColor = true;
+            this.btnSelectArmor.Click += new System.EventHandler(this.btnSelectArmor_Click);
             // 
             // cmbArmors
             // 
             this.cmbArmors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbArmors.Enabled = false;
             this.cmbArmors.FormattingEnabled = true;
             this.cmbArmors.Location = new System.Drawing.Point(339, 217);
             this.cmbArmors.Name = "cmbArmors";

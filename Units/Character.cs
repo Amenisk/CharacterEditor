@@ -102,5 +102,23 @@ namespace Characters
         {
             Name = name;
         }
+
+        public void GetBuffsFromItem(Item item)
+        {
+            HP += item.IncHP;
+            MP += item.IncMP;
+            Damage += item.IncDamage;
+            PhysDef += item.IncPhysDefense;
+            MagDamage += item.IncMagDamage;
+        }
+
+        public void RemoveBuffsFromItem(Item item)
+        {
+            HP -= item.IncHP;
+            MP -= item.IncMP;
+            Damage -= item.IncDamage;
+            PhysDef -= item.IncPhysDefense;
+            MagDamage -= item.IncMagDamage;
+        }
     }
 }

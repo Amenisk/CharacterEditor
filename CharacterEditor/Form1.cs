@@ -56,6 +56,7 @@ namespace CharacterEditor
                 tbCountOfPoints.Text = _selectedCharacter.NumberOfPoints.ToString();
                 isLoaded = false;
                 FillingAddAbility();
+                EquipmentFilling();
             }
             else
             {
@@ -151,6 +152,10 @@ namespace CharacterEditor
                 tbLvl.Text = "";
                 tbNextLvlPoints.Text = "";
                 tbLvlPoints.Text = "";
+                cmbInventory.Items.Clear();
+                cmbWeapons.Items.Clear();
+                cmbHelmets.Items.Clear();
+                cmbArmors.Items.Clear();
 
                 isLoaded = false;
             }
@@ -171,6 +176,7 @@ namespace CharacterEditor
                 loadName = _selectedCharacter.Name;
                 FillingAddAbility();
                 FillingAbilities();
+                EquipmentFilling();
             }
         }
 
@@ -211,6 +217,7 @@ namespace CharacterEditor
                 tbNextLvlPoints.Text = _selectedCharacter.NextLevelPoints.ToString();
                 _selectedCharacter.NumberOfPoints += 5;
                 tbCountOfPoints.Text = _selectedCharacter.NumberOfPoints.ToString();
+                EquipmentFilling();
 
                 if (_selectedCharacter.Level % 3 == 0)
                 {
@@ -258,9 +265,94 @@ namespace CharacterEditor
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSelectWeapon_Click(object sender, EventArgs e)
+        {
+            SelectItem("Weapon", cmbWeapons.SelectedItem.ToString());
+            cmbWeapons.SelectedItem = null;
+        }
+
+        private void cmbWeapons_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void EquipmentFilling()
+        {
+            var weapons = Database.GetNameEquipment(_selectedCharacter, "Weapon");
+            var helmets = Database.GetNameEquipment(_selectedCharacter, "Helmet");
+            var armors = Database.GetNameEquipment(_selectedCharacter, "Armor");
+            cmbWeapons.Items.Clear();
+            cmbHelmets.Items.Clear();
+            cmbArmors.Items.Clear();
+
+            foreach (var weapon in weapons)
+            {
+                cmbWeapons.Items.Add(weapon);
+            }
+
+            foreach (var helmet in helmets)
+            {
+                cmbHelmets.Items.Add(helmet);
+            }
+
+            foreach (var armor in armors)
+            {
+                cmbArmors.Items.Add(armor);
+            }
+        }
+
+        private void SelectItem(string type, string nameItem)
+        {
+            if(nameItem != null)
+            {
+                if(isLoaded)
+                {
+                    foreach (var it in _selectedCharacter.inventory)
+                    {
+                        if (it.Type == type)
+                        {
+                            cmbInventory.Items.Remove(it.Name);
+                            _selectedCharacter.RemoveBuffsFromItem(it);
+                            _selectedCharacter.inventory.Remove(it);
+                            break;
+                        }
+                    }
+
+                    Item item = Database.FindItemByName
+                        (nameItem, type);
+
+                    _selectedCharacter.inventory.Add(item);
+                    cmbInventory.Items.Add(item.Name);
+                    _selectedCharacter.GetBuffsFromItem(item);
+                    Database.ReplaceByName(_selectedCharacter.Name, _selectedCharacter);
+
+                    tbHP.Text = _selectedCharacter.HP.ToString();
+                    tbMP.Text = _selectedCharacter.MP.ToString();
+                    tbDamage.Text = _selectedCharacter.Damage.ToString();
+                    tbPhysDef.Text = _selectedCharacter.PhysDef.ToString();
+                    tbMagDamage.Text = _selectedCharacter.MagDamage.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Save or select the character first!", "Error!", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+        }
+
+        private void btnSelecthelmet_Click(object sender, EventArgs e)
+        {
+            SelectItem("Helmet", cmbHelmets.SelectedItem.ToString());
+            cmbHelmets.SelectedItem = null;
+        }
+
+        private void btnSelectArmor_Click(object sender, EventArgs e)
+        {
+            SelectItem("Armor", cmbArmors.SelectedItem.ToString());
+            cmbArmors.SelectedItem = null;
+        }
+
+        
     }
 }
