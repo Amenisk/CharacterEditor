@@ -173,15 +173,7 @@ namespace CharacterEditor
                 FillingAbilities();
             }
         }
-        private void btnAddItem_Click(object sender, EventArgs e)
-        {
-            if(tbAddItem.Text != "" && _selectedCharacter != null)
-            {
-                _selectedCharacter.AddToInventory(new Item(tbAddItem.Text));
-                cmbInventory.Items.Add(tbAddItem.Text);
-                tbAddItem.Text = "";
-            }
-        }
+
         private void btnPlus1000Lvl_Click(object sender, EventArgs e)
         {
             if (_selectedCharacter != null)
@@ -264,6 +256,11 @@ namespace CharacterEditor
                     btnAddAbility.Enabled = false;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

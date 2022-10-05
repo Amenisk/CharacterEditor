@@ -73,12 +73,16 @@
             this.tbtextLvl = new System.Windows.Forms.TextBox();
             this.tbInventory = new System.Windows.Forms.TextBox();
             this.cmbInventory = new System.Windows.Forms.ComboBox();
-            this.tbAddItem = new System.Windows.Forms.TextBox();
-            this.btnAddItem = new System.Windows.Forms.Button();
             this.cmbAbilities = new System.Windows.Forms.ComboBox();
             this.tbTextAbilities = new System.Windows.Forms.TextBox();
             this.cmbAddAbility = new System.Windows.Forms.ComboBox();
             this.btnAddAbility = new System.Windows.Forms.Button();
+            this.btnSelectWeapon = new System.Windows.Forms.Button();
+            this.cmbWeapons = new System.Windows.Forms.ComboBox();
+            this.btnSelecthelmet = new System.Windows.Forms.Button();
+            this.cmbHelmets = new System.Windows.Forms.ComboBox();
+            this.btnSelectArmor = new System.Windows.Forms.Button();
+            this.cmbArmors = new System.Windows.Forms.ComboBox();
             this.pnlMain.SuspendLayout();
             this.pnlCharacteristics.SuspendLayout();
             this.SuspendLayout();
@@ -448,9 +452,9 @@
             this.pnlCharacteristics.Controls.Add(this.tbTextMP);
             this.pnlCharacteristics.Controls.Add(this.tbDamage);
             this.pnlCharacteristics.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlCharacteristics.Location = new System.Drawing.Point(599, 0);
+            this.pnlCharacteristics.Location = new System.Drawing.Point(603, 0);
             this.pnlCharacteristics.Name = "pnlCharacteristics";
-            this.pnlCharacteristics.Size = new System.Drawing.Size(236, 510);
+            this.pnlCharacteristics.Size = new System.Drawing.Size(232, 510);
             this.pnlCharacteristics.TabIndex = 24;
             // 
             // tbLvl
@@ -565,28 +569,11 @@
             this.cmbInventory.Size = new System.Drawing.Size(156, 25);
             this.cmbInventory.TabIndex = 29;
             // 
-            // tbAddItem
-            // 
-            this.tbAddItem.Location = new System.Drawing.Point(389, 109);
-            this.tbAddItem.Name = "tbAddItem";
-            this.tbAddItem.Size = new System.Drawing.Size(156, 25);
-            this.tbAddItem.TabIndex = 30;
-            // 
-            // btnAddItem
-            // 
-            this.btnAddItem.Location = new System.Drawing.Point(419, 140);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(96, 26);
-            this.btnAddItem.TabIndex = 31;
-            this.btnAddItem.Text = "Create item";
-            this.btnAddItem.UseVisualStyleBackColor = true;
-            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
-            // 
             // cmbAbilities
             // 
             this.cmbAbilities.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAbilities.FormattingEnabled = true;
-            this.cmbAbilities.Location = new System.Drawing.Point(430, 195);
+            this.cmbAbilities.Location = new System.Drawing.Point(430, 323);
             this.cmbAbilities.Name = "cmbAbilities";
             this.cmbAbilities.Size = new System.Drawing.Size(156, 25);
             this.cmbAbilities.TabIndex = 32;
@@ -595,7 +582,7 @@
             // 
             this.tbTextAbilities.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbTextAbilities.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbTextAbilities.Location = new System.Drawing.Point(339, 194);
+            this.tbTextAbilities.Location = new System.Drawing.Point(339, 322);
             this.tbTextAbilities.Name = "tbTextAbilities";
             this.tbTextAbilities.ReadOnly = true;
             this.tbTextAbilities.Size = new System.Drawing.Size(85, 26);
@@ -607,7 +594,7 @@
             this.cmbAddAbility.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAddAbility.Enabled = false;
             this.cmbAddAbility.FormattingEnabled = true;
-            this.cmbAddAbility.Location = new System.Drawing.Point(389, 245);
+            this.cmbAddAbility.Location = new System.Drawing.Point(389, 373);
             this.cmbAddAbility.Name = "cmbAddAbility";
             this.cmbAddAbility.Size = new System.Drawing.Size(156, 25);
             this.cmbAddAbility.TabIndex = 34;
@@ -615,7 +602,7 @@
             // btnAddAbility
             // 
             this.btnAddAbility.Enabled = false;
-            this.btnAddAbility.Location = new System.Drawing.Point(419, 280);
+            this.btnAddAbility.Location = new System.Drawing.Point(419, 408);
             this.btnAddAbility.Name = "btnAddAbility";
             this.btnAddAbility.Size = new System.Drawing.Size(96, 26);
             this.btnAddAbility.TabIndex = 35;
@@ -623,17 +610,82 @@
             this.btnAddAbility.UseVisualStyleBackColor = true;
             this.btnAddAbility.Click += new System.EventHandler(this.btnAddAbility_Click);
             // 
+            // btnSelectWeapon
+            // 
+            this.btnSelectWeapon.Enabled = false;
+            this.btnSelectWeapon.Location = new System.Drawing.Point(501, 114);
+            this.btnSelectWeapon.Name = "btnSelectWeapon";
+            this.btnSelectWeapon.Size = new System.Drawing.Size(104, 26);
+            this.btnSelectWeapon.TabIndex = 37;
+            this.btnSelectWeapon.Text = "Select weapon";
+            this.btnSelectWeapon.UseVisualStyleBackColor = true;
+            this.btnSelectWeapon.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cmbWeapons
+            // 
+            this.cmbWeapons.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWeapons.Enabled = false;
+            this.cmbWeapons.FormattingEnabled = true;
+            this.cmbWeapons.Location = new System.Drawing.Point(339, 114);
+            this.cmbWeapons.Name = "cmbWeapons";
+            this.cmbWeapons.Size = new System.Drawing.Size(156, 25);
+            this.cmbWeapons.TabIndex = 36;
+            // 
+            // btnSelecthelmet
+            // 
+            this.btnSelecthelmet.Enabled = false;
+            this.btnSelecthelmet.Location = new System.Drawing.Point(501, 165);
+            this.btnSelecthelmet.Name = "btnSelecthelmet";
+            this.btnSelecthelmet.Size = new System.Drawing.Size(104, 26);
+            this.btnSelecthelmet.TabIndex = 39;
+            this.btnSelecthelmet.Text = "Select helmet";
+            this.btnSelecthelmet.UseVisualStyleBackColor = true;
+            // 
+            // cmbHelmets
+            // 
+            this.cmbHelmets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbHelmets.Enabled = false;
+            this.cmbHelmets.FormattingEnabled = true;
+            this.cmbHelmets.Location = new System.Drawing.Point(339, 165);
+            this.cmbHelmets.Name = "cmbHelmets";
+            this.cmbHelmets.Size = new System.Drawing.Size(156, 25);
+            this.cmbHelmets.TabIndex = 38;
+            // 
+            // btnSelectArmor
+            // 
+            this.btnSelectArmor.Enabled = false;
+            this.btnSelectArmor.Location = new System.Drawing.Point(501, 217);
+            this.btnSelectArmor.Name = "btnSelectArmor";
+            this.btnSelectArmor.Size = new System.Drawing.Size(104, 26);
+            this.btnSelectArmor.TabIndex = 41;
+            this.btnSelectArmor.Text = "Select armor";
+            this.btnSelectArmor.UseVisualStyleBackColor = true;
+            // 
+            // cmbArmors
+            // 
+            this.cmbArmors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbArmors.Enabled = false;
+            this.cmbArmors.FormattingEnabled = true;
+            this.cmbArmors.Location = new System.Drawing.Point(339, 217);
+            this.cmbArmors.Name = "cmbArmors";
+            this.cmbArmors.Size = new System.Drawing.Size(156, 25);
+            this.cmbArmors.TabIndex = 40;
+            // 
             // CharacterEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 510);
+            this.Controls.Add(this.btnSelectArmor);
+            this.Controls.Add(this.cmbArmors);
+            this.Controls.Add(this.btnSelecthelmet);
+            this.Controls.Add(this.cmbHelmets);
+            this.Controls.Add(this.btnSelectWeapon);
+            this.Controls.Add(this.cmbWeapons);
             this.Controls.Add(this.btnAddAbility);
             this.Controls.Add(this.cmbAddAbility);
             this.Controls.Add(this.tbTextAbilities);
             this.Controls.Add(this.cmbAbilities);
-            this.Controls.Add(this.btnAddItem);
-            this.Controls.Add(this.tbAddItem);
             this.Controls.Add(this.cmbInventory);
             this.Controls.Add(this.tbInventory);
             this.Controls.Add(this.pnlCharacteristics);
@@ -688,8 +740,6 @@
         private TextBox tbSelectFromList;
         private TextBox tbInventory;
         private ComboBox cmbInventory;
-        private TextBox tbAddItem;
-        private Button btnAddItem;
         private TextBox tbNextLvlPoints;
         private TextBox tbLvlPoints;
         private TextBox tbtextLvl;
@@ -703,5 +753,11 @@
         private TextBox tbTextAbilities;
         private ComboBox cmbAddAbility;
         private Button btnAddAbility;
+        private Button btnSelectWeapon;
+        private ComboBox cmbWeapons;
+        private Button btnSelecthelmet;
+        private ComboBox cmbHelmets;
+        private Button btnSelectArmor;
+        private ComboBox cmbArmors;
     }
 }

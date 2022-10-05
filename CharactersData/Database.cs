@@ -80,5 +80,32 @@ namespace CharactersData
             var collection = database.GetCollection<Character>("Characters");
             collection.ReplaceOne(x => x.Name == name, ch);
         }
+
+        public static void AddItemToDatabase(Item item)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("Items");
+            var weapons = database.GetCollection<Item>("Weapons");
+            var helmets = database.GetCollection<Item>("Helmets");
+            var armors = database.GetCollection<Item>("Armors");
+
+            switch(item.Type)
+            {
+                case "Weapon":
+                    weapons.InsertOne(item);
+                    break;
+
+                case "Helmet":
+                    helmets.InsertOne(item);
+                    break;
+
+                case "Armor":
+                    armors.InsertOne(item);
+                    break;
+
+                default:
+                    break;
+            }
+        }
     }
 }
