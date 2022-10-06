@@ -177,6 +177,7 @@ namespace CharacterEditor
                 FillingAddAbility();
                 FillingAbilities();
                 EquipmentFilling();
+                CalculateInventoryBuffs();
             }
         }
 
@@ -310,19 +311,12 @@ namespace CharacterEditor
                     Item item = Database.FindItemByName
                        (nameItem, type);
 
-                    if (!CheckParams(item, _selectedCharacter))
-                    {
-                        MessageBox.Show("This item not suitable for chis character!", "Error!",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
                     foreach (var it in _selectedCharacter.inventory)
                     {
                         if (it.Type == type)
                         {
                             cmbInventory.Items.Remove(it.Name);
-                            _selectedCharacter.RemoveBuffsFromItem(it);
+                            CalculateBuffsFromItem(it, false);
                             _selectedCharacter.inventory.Remove(it);
                             break;
                         }
@@ -330,14 +324,8 @@ namespace CharacterEditor
 
                     _selectedCharacter.inventory.Add(item);
                     cmbInventory.Items.Add(item.Name);
-                    _selectedCharacter.GetBuffsFromItem(item);
-                    Database.ReplaceByName(_selectedCharacter.Name, _selectedCharacter);
-
-                    tbHP.Text = _selectedCharacter.HP.ToString();
-                    tbMP.Text = _selectedCharacter.MP.ToString();
-                    tbDamage.Text = _selectedCharacter.Damage.ToString();
-                    tbPhysDef.Text = _selectedCharacter.PhysDef.ToString();
-                    tbMagDamage.Text = _selectedCharacter.MagDamage.ToString();
+                    CalculateBuffsFromItem(item, true);
+                    Database.UpdateInventory(_selectedCharacter.Name, _selectedCharacter.inventory);
                 }
                 else
                 {
@@ -360,11 +348,67 @@ namespace CharacterEditor
             cmbArmors.SelectedItem = null;
         }
 
-        private bool CheckParams(Item item, Character ch)
+        private void CalculateBuffsFromItem(Item item, bool isSelect)
         {
-            return  ch.HP + item.IncMP >= 0 && ch.MP + item.IncMP >= 0 
-                && ch.Damage + item.IncDamage >= 0 && ch.PhysDef + item.IncPhysDefense >= 0 
-                && ch.MagDamage + item.IncMagDamage >= 0;
+            int x = 1;
+            if (!isSelect) x = -1;
+
+            tbStrength.Text = (int.Parse(tbStrength.Text) + x * item.IncStrength).ToString();
+            tbDexterity.Text = (int.Parse(tbDexterity.Text) + x * item.IncDexterity).ToString();
+            tbConstitution.Text = (int.Parse(tbConstitution.Text) + x * item.IncConstitution).ToString();
+            tbInteligence.Text = (int.Parse(tbInteligence.Text) + x * item.IncInteligence).ToString();
+            tbHP.Text = (int.Parse(tbHP.Text) + x * item.IncHP).ToString();
+            tbMP.Text = (int.Parse(tbMP.Text) + x * item.IncMP).ToString();
+            tbDamage.Text = (int.Parse(tbDamage.Text) + x * item.IncDamage).ToString();
+            tbPhysDef.Text = (int.Parse(tbPhysDef.Text) + x * item.IncPhysDefense).ToString();
+            tbMagDamage.Text = (int.Parse(tbMagDamage.Text) + x * item.IncMagDamage).ToString();
+
+
+            switch (_selectedCharacter.ClassName)
+            {
+                case "Warrior":
+                    tbHP.Text = (int.Parse(tbHP.Text) + x * 
+                        (2 * item.IncStrength + 10 * item.IncConstitution)).ToString();
+                    tbMP.Text = (double.Parse(tbMP.Text) + x * item.IncInteligence).ToString();
+                    tbDamage.Text = (int.Parse(tbDamage.Text) + x * 
+                        (5 * item.IncStrength + item.IncDexterity)).ToString();
+                    tbPhysDef.Text = (double.Parse(tbPhysDef.Text) + x * 
+                        (item.IncDexterity  + 2 * item.IncConstitution)).ToString();
+                    tbMagDamage.Text = (int.Parse(tbMagDamage.Text) + x * item.IncMagDamage).ToString();
+                    break;
+
+                case "Rogue":
+                    tbHP.Text = (int.Parse(tbHP.Text) + x *
+                        (item.IncStrength + 6 * item.IncConstitution)).ToString();
+                    tbMP.Text = (double.Parse(tbMP.Text) + x * 1.5 * item.IncInteligence).ToString();
+                    tbDamage.Text = (int.Parse(tbDamage.Text) + x *
+                        (2 * item.IncStrength + 4 * item.IncDexterity)).ToString();
+                    tbPhysDef.Text = (double.Parse(tbPhysDef.Text) + x *
+                        (1.5 * item.IncDexterity)).ToString();
+                    tbMagDamage.Text = (int.Parse(tbMagDamage.Text) + x * 2 * item.IncMagDamage).ToString();
+                    break;
+
+                case "Wizard":
+                    tbHP.Text = (int.Parse(tbHP.Text) + x *
+                        (item.IncStrength + 3 * item.IncConstitution)).ToString();
+                    tbMP.Text = (double.Parse(tbMP.Text) + x * 2 * item.IncInteligence).ToString();
+                    tbDamage.Text = (int.Parse(tbDamage.Text) + x * 3 * item.IncStrength).ToString();
+                    tbPhysDef.Text = (double.Parse(tbPhysDef.Text) + x *
+                        (0.5 * item.IncDexterity + item.IncConstitution)).ToString();
+                    tbMagDamage.Text = (int.Parse(tbMagDamage.Text) + x * 5 * item.IncMagDamage).ToString();
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void CalculateInventoryBuffs()
+        {
+            foreach(var item in _selectedCharacter.inventory)
+            {
+                CalculateBuffsFromItem(item, true);
+            }
         }
     }
 }

@@ -47,6 +47,14 @@
             this.tbTextClass = new System.Windows.Forms.TextBox();
             this.tbTextLvl = new System.Windows.Forms.TextBox();
             this.tbLvl = new System.Windows.Forms.TextBox();
+            this.tbTextInteligence = new System.Windows.Forms.TextBox();
+            this.tbTextConstitution = new System.Windows.Forms.TextBox();
+            this.tbTextDexterity = new System.Windows.Forms.TextBox();
+            this.tbTextStrength = new System.Windows.Forms.TextBox();
+            this.tbStrength = new System.Windows.Forms.TextBox();
+            this.tbDexterity = new System.Windows.Forms.TextBox();
+            this.tbConstitution = new System.Windows.Forms.TextBox();
+            this.tbInteligence = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnAddItem
@@ -235,11 +243,91 @@
             this.tbLvl.Size = new System.Drawing.Size(66, 23);
             this.tbLvl.TabIndex = 40;
             // 
+            // tbTextInteligence
+            // 
+            this.tbTextInteligence.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbTextInteligence.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbTextInteligence.Location = new System.Drawing.Point(536, 261);
+            this.tbTextInteligence.Name = "tbTextInteligence";
+            this.tbTextInteligence.ReadOnly = true;
+            this.tbTextInteligence.Size = new System.Drawing.Size(110, 26);
+            this.tbTextInteligence.TabIndex = 49;
+            this.tbTextInteligence.Text = "Inteligence";
+            // 
+            // tbTextConstitution
+            // 
+            this.tbTextConstitution.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbTextConstitution.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbTextConstitution.Location = new System.Drawing.Point(536, 230);
+            this.tbTextConstitution.Name = "tbTextConstitution";
+            this.tbTextConstitution.ReadOnly = true;
+            this.tbTextConstitution.Size = new System.Drawing.Size(110, 26);
+            this.tbTextConstitution.TabIndex = 48;
+            this.tbTextConstitution.Text = "Constitution";
+            // 
+            // tbTextDexterity
+            // 
+            this.tbTextDexterity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbTextDexterity.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbTextDexterity.Location = new System.Drawing.Point(536, 199);
+            this.tbTextDexterity.Name = "tbTextDexterity";
+            this.tbTextDexterity.ReadOnly = true;
+            this.tbTextDexterity.Size = new System.Drawing.Size(79, 26);
+            this.tbTextDexterity.TabIndex = 47;
+            this.tbTextDexterity.Text = "Dexterity";
+            // 
+            // tbTextStrength
+            // 
+            this.tbTextStrength.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbTextStrength.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbTextStrength.Location = new System.Drawing.Point(536, 167);
+            this.tbTextStrength.Name = "tbTextStrength";
+            this.tbTextStrength.ReadOnly = true;
+            this.tbTextStrength.Size = new System.Drawing.Size(79, 26);
+            this.tbTextStrength.TabIndex = 46;
+            this.tbTextStrength.Text = "Strength";
+            // 
+            // tbStrength
+            // 
+            this.tbStrength.Location = new System.Drawing.Point(652, 164);
+            this.tbStrength.Name = "tbStrength";
+            this.tbStrength.Size = new System.Drawing.Size(100, 23);
+            this.tbStrength.TabIndex = 42;
+            // 
+            // tbDexterity
+            // 
+            this.tbDexterity.Location = new System.Drawing.Point(652, 197);
+            this.tbDexterity.Name = "tbDexterity";
+            this.tbDexterity.Size = new System.Drawing.Size(100, 23);
+            this.tbDexterity.TabIndex = 43;
+            // 
+            // tbConstitution
+            // 
+            this.tbConstitution.Location = new System.Drawing.Point(652, 230);
+            this.tbConstitution.Name = "tbConstitution";
+            this.tbConstitution.Size = new System.Drawing.Size(100, 23);
+            this.tbConstitution.TabIndex = 44;
+            // 
+            // tbInteligence
+            // 
+            this.tbInteligence.Location = new System.Drawing.Point(652, 261);
+            this.tbInteligence.Name = "tbInteligence";
+            this.tbInteligence.Size = new System.Drawing.Size(100, 23);
+            this.tbInteligence.TabIndex = 45;
+            // 
             // ItemsCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbTextInteligence);
+            this.Controls.Add(this.tbTextConstitution);
+            this.Controls.Add(this.tbTextDexterity);
+            this.Controls.Add(this.tbTextStrength);
+            this.Controls.Add(this.tbStrength);
+            this.Controls.Add(this.tbDexterity);
+            this.Controls.Add(this.tbConstitution);
+            this.Controls.Add(this.tbInteligence);
             this.Controls.Add(this.tbTextLvl);
             this.Controls.Add(this.tbLvl);
             this.Controls.Add(this.cmbClass);
@@ -287,5 +375,13 @@
         private TextBox tbTextClass;
         private TextBox tbTextLvl;
         private TextBox tbLvl;
+        private TextBox tbTextInteligence;
+        private TextBox tbTextConstitution;
+        private TextBox tbTextDexterity;
+        private TextBox tbTextStrength;
+        private TextBox tbStrength;
+        private TextBox tbDexterity;
+        private TextBox tbConstitution;
+        private TextBox tbInteligence;
     }
 }

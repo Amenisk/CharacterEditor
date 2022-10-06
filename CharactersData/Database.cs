@@ -172,5 +172,14 @@ namespace CharactersData
 
             return item;
         }
+        public static void UpdateInventory(string nameChar, List<Item> items)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("CharactersData");
+            var collection = database.GetCollection<Character>("Characters");
+            var updateDefinition = Builders<Character>.Update.Set("inventory", items);
+
+            collection.UpdateOne(x => x.Name == nameChar, updateDefinition);
+        }
     }
 }

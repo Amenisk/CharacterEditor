@@ -17,6 +17,11 @@ namespace Characters
         public string ItemClass { get; private set; }
         public string Type { get; private set; }
         public int LvlItem { get; private set; }
+        public int IncStrength { get; private set; }
+        public int IncDexterity { get; private set; }
+        public int IncConstitution { get; private set; }
+        public int IncInteligence { get; private set; }
+        public int Inc { get; private set; }
         public int IncHP { get; private set; }
         public int IncMP { get; private set; }
         public int IncDamage { get; private set; }
@@ -26,7 +31,8 @@ namespace Characters
         public Item() {}
 
         public Item(string name, string itemClass, string type, int lvlItem, 
-            int hp, int mp, int damage, int physDef, int magDamage)
+            int hp, int mp, int damage, int physDef, int magDamage, 
+            int incStrength, int incDexterity, int incConstitution, int incInteligence)
         {
             Name = name;
             ItemClass = itemClass;
@@ -37,6 +43,10 @@ namespace Characters
             IncDamage = damage;
             IncPhysDefense = physDef;
             IncMagDamage = magDamage;
+            IncStrength = incStrength;
+            IncDexterity = incDexterity;
+            IncConstitution = incConstitution;
+            IncInteligence = incInteligence;
         }
     }
 }
