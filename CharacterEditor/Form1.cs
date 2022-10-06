@@ -27,7 +27,7 @@ namespace CharacterEditor
             {
                 cmbNames.Items.Add(name);
             }
-            
+
         }
         private void btnCreateCharacter_Click(object sender, EventArgs e)
         {
@@ -80,11 +80,11 @@ namespace CharacterEditor
             tbName.Text = _selectedCharacter.Name.ToString();
             tbLvlPoints.Text = _selectedCharacter.LevelPoints.ToString();
             tbNextLvlPoints.Text = _selectedCharacter.NextLevelPoints.ToString();
-            tbLvl.Text = _selectedCharacter.Level.ToString();   
+            tbLvl.Text = _selectedCharacter.Level.ToString();
         }
         private void btnIncreaseStrength_Click(object sender, EventArgs e)
         {
-            if (_selectedCharacter != null && _selectedCharacter.NumberOfPoints > 0 
+            if (_selectedCharacter != null && _selectedCharacter.NumberOfPoints > 0
                 && _selectedCharacter.Strength + 1 <= _selectedCharacter.MaxStrength)
             {
                 _selectedCharacter.Strength++;
@@ -98,7 +98,7 @@ namespace CharacterEditor
             {
                 _selectedCharacter.Dexterity++;
                 AfterIncreasing();
-            }          
+            }
         }
         private void btnIncreaseConstitution_Click(object sender, EventArgs e)
         {
@@ -159,7 +159,7 @@ namespace CharacterEditor
 
                 isLoaded = false;
             }
-            
+
         }
         private void cmbNames_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -168,7 +168,7 @@ namespace CharacterEditor
                 _selectedCharacter = Database.FindByName(cmbNames.SelectedItem.ToString());
                 FillingInCharacteristics();
                 cmbInventory.Items.Clear();
-                foreach(var item in _selectedCharacter.inventory)
+                foreach (var item in _selectedCharacter.inventory)
                 {
                     cmbInventory.Items.Add(item.Name);
                 }
@@ -191,7 +191,7 @@ namespace CharacterEditor
         }
         private void btnPlus100Lvl_Click(object sender, EventArgs e)
         {
-            if(_selectedCharacter != null)
+            if (_selectedCharacter != null)
             {
                 _selectedCharacter.LevelPoints += 100;
                 tbLvlPoints.Text = _selectedCharacter.LevelPoints.ToString();
@@ -212,7 +212,7 @@ namespace CharacterEditor
             if (_selectedCharacter.LevelPoints >= _selectedCharacter.NextLevelPoints)
             {
                 _selectedCharacter.Level++;
-                _selectedCharacter.NextLevelPoints += 1000 * _selectedCharacter.Level; 
+                _selectedCharacter.NextLevelPoints += 1000 * _selectedCharacter.Level;
                 tbLvl.Text = _selectedCharacter.Level.ToString();
                 tbNextLvlPoints.Text = _selectedCharacter.NextLevelPoints.ToString();
                 _selectedCharacter.NumberOfPoints += 5;
@@ -234,7 +234,7 @@ namespace CharacterEditor
         private void FillingAbilities()
         {
             cmbAbilities.Items.Clear();
-            foreach(var ability in _selectedCharacter.CharacterAbilities)
+            foreach (var ability in _selectedCharacter.CharacterAbilities)
             {
                 cmbAbilities.Items.Add(ability);
             }
@@ -249,7 +249,7 @@ namespace CharacterEditor
         }
         private void btnAddAbility_Click(object sender, EventArgs e)
         {
-            if(cmbAddAbility.SelectedItem != null)
+            if (cmbAddAbility.SelectedItem != null)
             {
                 _selectedCharacter.CharacterAbilities.Add(cmbAddAbility.SelectedItem.ToString());
                 _selectedCharacter.Abilities.Remove(cmbAddAbility.SelectedItem.ToString());
@@ -257,7 +257,7 @@ namespace CharacterEditor
                 FillingAddAbility();
                 _selectedCharacter.abilityCount--;
 
-                if(_selectedCharacter.abilityCount < 1)
+                if (_selectedCharacter.abilityCount < 1)
                 {
                     cmbAddAbility.Enabled = false;
                     btnAddAbility.Enabled = false;
@@ -303,10 +303,20 @@ namespace CharacterEditor
 
         private void SelectItem(string type, string nameItem)
         {
-            if(nameItem != null)
+            if (nameItem != null)
             {
-                if(isLoaded)
+                if (isLoaded)
                 {
+                    Item item = Database.FindItemByName
+                       (nameItem, type);
+
+                    if (!CheckParams(item, _selectedCharacter))
+                    {
+                        MessageBox.Show("This item not suitable for chis character!", "Error!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                     foreach (var it in _selectedCharacter.inventory)
                     {
                         if (it.Type == type)
@@ -317,9 +327,6 @@ namespace CharacterEditor
                             break;
                         }
                     }
-
-                    Item item = Database.FindItemByName
-                        (nameItem, type);
 
                     _selectedCharacter.inventory.Add(item);
                     cmbInventory.Items.Add(item.Name);
@@ -334,10 +341,10 @@ namespace CharacterEditor
                 }
                 else
                 {
-                    MessageBox.Show("Save or select the character first!", "Error!", 
+                    MessageBox.Show("Save or select the character first!", "Error!",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
             }
         }
 
@@ -351,6 +358,13 @@ namespace CharacterEditor
         {
             SelectItem("Armor", cmbArmors.SelectedItem.ToString());
             cmbArmors.SelectedItem = null;
-        }      
+        }
+
+        private bool CheckParams(Item item, Character ch)
+        {
+            return  ch.HP + item.IncMP >= 0 && ch.MP + item.IncMP >= 0 
+                && ch.Damage + item.IncDamage >= 0 && ch.PhysDef + item.IncPhysDefense >= 0 
+                && ch.MagDamage + item.IncMagDamage >= 0;
+        }
     }
 }
