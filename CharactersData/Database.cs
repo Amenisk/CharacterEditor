@@ -130,7 +130,7 @@ namespace CharactersData
                     items = helmets.Find(filter).ToList();
                     break;
 
-                case "Armors":
+                case "Armor":
                     var armors = database.GetCollection<Item>("Armors");
                     items = armors.Find(filter).ToList();
                     break;
@@ -161,7 +161,7 @@ namespace CharactersData
                     item = helmets.Find(x => x.Name == name).FirstOrDefault();
                     break;
 
-                case "Armors":
+                case "Armor":
                     var armors = database.GetCollection<Item>("Armors");
                     item = armors.Find(x => x.Name == name).FirstOrDefault();
                     break;
@@ -171,26 +171,6 @@ namespace CharactersData
             }
 
             return item;
-        }
-
-        public static void SaveInventory(string name, List<Item> inventory, Item item)
-        {
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("CharactersData");
-            var collection = database.GetCollection<Character>("Characters");
-            var updateInventory = Builders<Character>.Update.Set("inventory", inventory);
-            var updateHP = Builders<Character>.Update.Inc("HP", item.IncHP);
-            var updateMP = Builders<Character>.Update.Inc("MP", item.IncMP);
-            var updateDamage = Builders<Character>.Update.Inc("Damage", item.IncDamage);
-            var updatePhysDef = Builders<Character>.Update.Inc("PhysDef", item.IncPhysDefense);
-            var updateMagDamage = Builders<Character>.Update.Inc("MagDamage", item.IncMagDamage);
-
-            collection.UpdateOne(x => x.Name == name, updateInventory);
-            collection.UpdateOne(x => x.Name == name, updateHP);
-            collection.UpdateOne(x => x.Name == name, updateMP);
-            collection.UpdateOne(x => x.Name == name, updateDamage);
-            collection.UpdateOne(x => x.Name == name, updatePhysDef);
-            collection.UpdateOne(x => x.Name == name, updateMagDamage);
         }
     }
 }

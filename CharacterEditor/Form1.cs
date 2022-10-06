@@ -351,8 +351,6 @@ namespace CharacterEditor
         {
             SelectItem("Armor", cmbArmors.SelectedItem.ToString());
             cmbArmors.SelectedItem = null;
-        }
-
-        
+        }      
     }
 }
