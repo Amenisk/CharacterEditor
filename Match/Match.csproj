@@ -8,9 +8,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CharactersData\CharactersData.csproj" />
-    <ProjectReference Include="..\Units\Core.csproj" />
-  </ItemGroup>
-
 </Project>

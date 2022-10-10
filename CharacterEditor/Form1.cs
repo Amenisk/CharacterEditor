@@ -1,8 +1,8 @@
-using Characters;
 using CharactersData;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
+using Core;
 
 namespace CharacterEditor
 {
@@ -27,7 +27,6 @@ namespace CharacterEditor
             {
                 cmbNames.Items.Add(name);
             }
-
         }
         private void btnCreateCharacter_Click(object sender, EventArgs e)
         {
