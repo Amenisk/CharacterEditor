@@ -1,8 +1,8 @@
-using Characters;
 using CharactersData;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
+using Core;
 
 namespace CharacterEditor
 {
@@ -27,7 +27,6 @@ namespace CharacterEditor
             {
                 cmbNames.Items.Add(name);
             }
-
         }
         private void btnCreateCharacter_Click(object sender, EventArgs e)
         {
@@ -358,9 +357,9 @@ namespace CharacterEditor
             tbConstitution.Text = (int.Parse(tbConstitution.Text) + x * item.IncConstitution).ToString();
             tbInteligence.Text = (int.Parse(tbInteligence.Text) + x * item.IncInteligence).ToString();
             tbHP.Text = (int.Parse(tbHP.Text) + x * item.IncHP).ToString();
-            tbMP.Text = (int.Parse(tbMP.Text) + x * item.IncMP).ToString();
+            tbMP.Text = (double.Parse(tbMP.Text) + x * item.IncMP).ToString();
             tbDamage.Text = (int.Parse(tbDamage.Text) + x * item.IncDamage).ToString();
-            tbPhysDef.Text = (int.Parse(tbPhysDef.Text) + x * item.IncPhysDefense).ToString();
+            tbPhysDef.Text = (double.Parse(tbPhysDef.Text) + x * item.IncPhysDefense).ToString();
             tbMagDamage.Text = (int.Parse(tbMagDamage.Text) + x * item.IncMagDamage).ToString();
 
             switch (_selectedCharacter.ClassName)

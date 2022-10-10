@@ -5,11 +5,11 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharacterEditor", "CharacterEditor\CharacterEditor.csproj", "{21DD909E-FA57-453B-8E45-886211144C32}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Characters", "Units\Characters.csproj", "{34488304-A414-4DE5-9F98-4E0EA9488365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Units\Core.csproj", "{34488304-A414-4DE5-9F98-4E0EA9488365}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharactersData", "CharactersData\CharactersData.csproj", "{8ACFBC77-9F04-46BF-A5BA-212795228339}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemsCreator", "ItemsCreator\ItemsCreator.csproj", "{9E9820B9-A023-4F5E-B07C-0C88847142B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemsCreator", "ItemsCreator\ItemsCreator.csproj", "{9E9820B9-A023-4F5E-B07C-0C88847142B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

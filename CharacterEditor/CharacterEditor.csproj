@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CharactersData\CharactersData.csproj" />
-    <ProjectReference Include="..\Units\Characters.csproj" />
+    <ProjectReference Include="..\Units\Core.csproj" />
   </ItemGroup>
 
 </Project>
