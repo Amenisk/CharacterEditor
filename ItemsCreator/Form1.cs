@@ -1,5 +1,5 @@
 using CharactersData;
-using Characters;
+using Core;
 
 namespace ItemsCreator
 {

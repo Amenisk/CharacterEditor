@@ -37,11 +37,14 @@
             this.cmbNames1 = new System.Windows.Forms.ComboBox();
             this.cmbNames2 = new System.Windows.Forms.ComboBox();
             this.btnSelect2 = new System.Windows.Forms.Button();
+            this.btnDelete1 = new System.Windows.Forms.Button();
+            this.btnDelete2 = new System.Windows.Forms.Button();
+            this.tbIsBalansed = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnAutoGeneration
             // 
-            this.btnAutoGeneration.Location = new System.Drawing.Point(30, 115);
+            this.btnAutoGeneration.Location = new System.Drawing.Point(38, 115);
             this.btnAutoGeneration.Name = "btnAutoGeneration";
             this.btnAutoGeneration.Size = new System.Drawing.Size(78, 39);
             this.btnAutoGeneration.TabIndex = 37;
@@ -53,7 +56,7 @@
             // 
             this.tbTextSecondTeam.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbTextSecondTeam.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbTextSecondTeam.Location = new System.Drawing.Point(459, 83);
+            this.tbTextSecondTeam.Location = new System.Drawing.Point(467, 83);
             this.tbTextSecondTeam.Name = "tbTextSecondTeam";
             this.tbTextSecondTeam.ReadOnly = true;
             this.tbTextSecondTeam.Size = new System.Drawing.Size(116, 26);
@@ -64,7 +67,7 @@
             // 
             this.tbTextFirstTeam.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbTextFirstTeam.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbTextFirstTeam.Location = new System.Drawing.Point(168, 83);
+            this.tbTextFirstTeam.Location = new System.Drawing.Point(176, 83);
             this.tbTextFirstTeam.Name = "tbTextFirstTeam";
             this.tbTextFirstTeam.ReadOnly = true;
             this.tbTextFirstTeam.Size = new System.Drawing.Size(89, 26);
@@ -76,7 +79,7 @@
             this.lbFirstTeam.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbFirstTeam.FormattingEnabled = true;
             this.lbFirstTeam.ItemHeight = 32;
-            this.lbFirstTeam.Location = new System.Drawing.Point(153, 115);
+            this.lbFirstTeam.Location = new System.Drawing.Point(161, 115);
             this.lbFirstTeam.Name = "lbFirstTeam";
             this.lbFirstTeam.Size = new System.Drawing.Size(120, 196);
             this.lbFirstTeam.TabIndex = 33;
@@ -86,25 +89,26 @@
             this.lbSecondTeam.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbSecondTeam.FormattingEnabled = true;
             this.lbSecondTeam.ItemHeight = 32;
-            this.lbSecondTeam.Location = new System.Drawing.Point(455, 115);
+            this.lbSecondTeam.Location = new System.Drawing.Point(463, 115);
             this.lbSecondTeam.Name = "lbSecondTeam";
             this.lbSecondTeam.Size = new System.Drawing.Size(120, 196);
             this.lbSecondTeam.TabIndex = 34;
             // 
             // btnSelect1
             // 
-            this.btnSelect1.Location = new System.Drawing.Point(33, 228);
+            this.btnSelect1.Location = new System.Drawing.Point(41, 237);
             this.btnSelect1.Name = "btnSelect1";
             this.btnSelect1.Size = new System.Drawing.Size(75, 23);
             this.btnSelect1.TabIndex = 38;
             this.btnSelect1.Text = "Select";
             this.btnSelect1.UseVisualStyleBackColor = true;
+            this.btnSelect1.Click += new System.EventHandler(this.btnSelect1_Click);
             // 
             // cmbNames1
             // 
             this.cmbNames1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNames1.FormattingEnabled = true;
-            this.cmbNames1.Location = new System.Drawing.Point(1, 187);
+            this.cmbNames1.Location = new System.Drawing.Point(9, 187);
             this.cmbNames1.Name = "cmbNames1";
             this.cmbNames1.Size = new System.Drawing.Size(146, 23);
             this.cmbNames1.TabIndex = 39;
@@ -114,25 +118,58 @@
             // 
             this.cmbNames2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNames2.FormattingEnabled = true;
-            this.cmbNames2.Location = new System.Drawing.Point(289, 188);
+            this.cmbNames2.Location = new System.Drawing.Point(297, 188);
             this.cmbNames2.Name = "cmbNames2";
             this.cmbNames2.Size = new System.Drawing.Size(146, 23);
             this.cmbNames2.TabIndex = 41;
             // 
             // btnSelect2
             // 
-            this.btnSelect2.Location = new System.Drawing.Point(327, 228);
+            this.btnSelect2.Location = new System.Drawing.Point(335, 237);
             this.btnSelect2.Name = "btnSelect2";
             this.btnSelect2.Size = new System.Drawing.Size(75, 23);
             this.btnSelect2.TabIndex = 40;
             this.btnSelect2.Text = "Select";
             this.btnSelect2.UseVisualStyleBackColor = true;
+            this.btnSelect2.Click += new System.EventHandler(this.btnSelect2_Click);
+            // 
+            // btnDelete1
+            // 
+            this.btnDelete1.Location = new System.Drawing.Point(41, 275);
+            this.btnDelete1.Name = "btnDelete1";
+            this.btnDelete1.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete1.TabIndex = 42;
+            this.btnDelete1.Text = "Delete";
+            this.btnDelete1.UseVisualStyleBackColor = true;
+            this.btnDelete1.Click += new System.EventHandler(this.btnDelete1_Click);
+            // 
+            // btnDelete2
+            // 
+            this.btnDelete2.Location = new System.Drawing.Point(335, 275);
+            this.btnDelete2.Name = "btnDelete2";
+            this.btnDelete2.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete2.TabIndex = 43;
+            this.btnDelete2.Text = "Delete";
+            this.btnDelete2.UseVisualStyleBackColor = true;
+            this.btnDelete2.Click += new System.EventHandler(this.btn_Click);
+            // 
+            // tbIsBalansed
+            // 
+            this.tbIsBalansed.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbIsBalansed.Location = new System.Drawing.Point(256, 405);
+            this.tbIsBalansed.Name = "tbIsBalansed";
+            this.tbIsBalansed.ReadOnly = true;
+            this.tbIsBalansed.Size = new System.Drawing.Size(239, 33);
+            this.tbIsBalansed.TabIndex = 44;
             // 
             // Match
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tbIsBalansed);
+            this.Controls.Add(this.btnDelete2);
+            this.Controls.Add(this.btnDelete1);
             this.Controls.Add(this.cmbNames2);
             this.Controls.Add(this.btnSelect2);
             this.Controls.Add(this.cmbNames1);
@@ -161,5 +198,8 @@
         private ComboBox cmbNames1;
         private ComboBox cmbNames2;
         private Button btnSelect2;
+        private Button btnDelete1;
+        private Button btnDelete2;
+        private TextBox tbIsBalansed;
     }
 }
