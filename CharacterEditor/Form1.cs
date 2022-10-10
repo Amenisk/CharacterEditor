@@ -363,7 +363,6 @@ namespace CharacterEditor
             tbPhysDef.Text = (int.Parse(tbPhysDef.Text) + x * item.IncPhysDefense).ToString();
             tbMagDamage.Text = (int.Parse(tbMagDamage.Text) + x * item.IncMagDamage).ToString();
 
-
             switch (_selectedCharacter.ClassName)
             {
                 case "Warrior":
