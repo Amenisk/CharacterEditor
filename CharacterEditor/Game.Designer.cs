@@ -1,6 +1,6 @@
 ﻿namespace CharacterEditor
 {
-    partial class Match
+    partial class Game
     {
         /// <summary>
         /// Required designer variable.
@@ -40,6 +40,12 @@
             this.btnDelete1 = new System.Windows.Forms.Button();
             this.btnDelete2 = new System.Windows.Forms.Button();
             this.tbIsBalansed = new System.Windows.Forms.TextBox();
+            this.btnStartGame = new System.Windows.Forms.Button();
+            this.cmbMatches = new System.Windows.Forms.ComboBox();
+            this.btnLoadMatch = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnCharacter1 = new System.Windows.Forms.Button();
+            this.btnCharacter2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAutoGeneration
@@ -162,11 +168,79 @@
             this.tbIsBalansed.Size = new System.Drawing.Size(239, 33);
             this.tbIsBalansed.TabIndex = 44;
             // 
-            // Match
+            // btnStartGame
+            // 
+            this.btnStartGame.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnStartGame.Location = new System.Drawing.Point(287, 321);
+            this.btnStartGame.Name = "btnStartGame";
+            this.btnStartGame.Size = new System.Drawing.Size(171, 39);
+            this.btnStartGame.TabIndex = 45;
+            this.btnStartGame.Text = "Start game";
+            this.btnStartGame.UseVisualStyleBackColor = true;
+            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
+            // 
+            // cmbMatches
+            // 
+            this.cmbMatches.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMatches.FormattingEnabled = true;
+            this.cmbMatches.Location = new System.Drawing.Point(620, 124);
+            this.cmbMatches.Name = "cmbMatches";
+            this.cmbMatches.Size = new System.Drawing.Size(155, 23);
+            this.cmbMatches.TabIndex = 46;
+            // 
+            // btnLoadMatch
+            // 
+            this.btnLoadMatch.Location = new System.Drawing.Point(656, 167);
+            this.btnLoadMatch.Name = "btnLoadMatch";
+            this.btnLoadMatch.Size = new System.Drawing.Size(91, 23);
+            this.btnLoadMatch.TabIndex = 47;
+            this.btnLoadMatch.Text = "Load match";
+            this.btnLoadMatch.UseVisualStyleBackColor = true;
+            this.btnLoadMatch.Click += new System.EventHandler(this.btnLoadMatch_Click);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(656, 196);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(91, 23);
+            this.btnReturn.TabIndex = 48;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // btnCharacter1
+            // 
+            this.btnCharacter1.Location = new System.Drawing.Point(161, 321);
+            this.btnCharacter1.Name = "btnCharacter1";
+            this.btnCharacter1.Size = new System.Drawing.Size(120, 23);
+            this.btnCharacter1.TabIndex = 49;
+            this.btnCharacter1.Text = "Get characteristics";
+            this.btnCharacter1.UseVisualStyleBackColor = true;
+            this.btnCharacter1.Visible = false;
+            this.btnCharacter1.Click += new System.EventHandler(this.btnCharacter1_Click);
+            // 
+            // btnCharacter2
+            // 
+            this.btnCharacter2.Location = new System.Drawing.Point(463, 321);
+            this.btnCharacter2.Name = "btnCharacter2";
+            this.btnCharacter2.Size = new System.Drawing.Size(120, 23);
+            this.btnCharacter2.TabIndex = 50;
+            this.btnCharacter2.Text = "Get characteristics";
+            this.btnCharacter2.UseVisualStyleBackColor = true;
+            this.btnCharacter2.Visible = false;
+            this.btnCharacter2.Click += new System.EventHandler(this.btnCharacter2_Click);
+            // 
+            // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCharacter2);
+            this.Controls.Add(this.btnCharacter1);
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnLoadMatch);
+            this.Controls.Add(this.cmbMatches);
+            this.Controls.Add(this.btnStartGame);
             this.Controls.Add(this.tbIsBalansed);
             this.Controls.Add(this.btnDelete2);
             this.Controls.Add(this.btnDelete1);
@@ -179,7 +253,7 @@
             this.Controls.Add(this.tbTextFirstTeam);
             this.Controls.Add(this.lbFirstTeam);
             this.Controls.Add(this.lbSecondTeam);
-            this.Name = "Match";
+            this.Name = "Game";
             this.Text = "Match";
             this.Load += new System.EventHandler(this.Match_Load);
             this.ResumeLayout(false);
@@ -201,5 +275,11 @@
         private Button btnDelete1;
         private Button btnDelete2;
         private TextBox tbIsBalansed;
+        private Button btnStartGame;
+        private ComboBox cmbMatches;
+        private Button btnLoadMatch;
+        private Button btnReturn;
+        private Button btnCharacter1;
+        private Button btnCharacter2;
     }
 }

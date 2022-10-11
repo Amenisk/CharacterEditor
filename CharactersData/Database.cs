@@ -181,5 +181,38 @@ namespace CharactersData
 
             collection.UpdateOne(x => x.Name == nameChar, updateDefinition);
         }
+
+        public static void SaveMatch(Match match)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("CharactersData");
+            var collection = database.GetCollection<Match>("Matches");
+            collection.InsertOne(match);
+        }
+
+        public static List<String> OutputListMatches()
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("CharactersData");
+            var collection = database.GetCollection<Match>("Matches");
+            List<Match> matches = collection.Find(x => x.Time != null).ToList<Match>();
+            List<String> times = new List<String>();
+
+            foreach(var match in matches)
+            {
+                times.Add(match.Time);
+            }
+
+            return times;
+        }
+
+        public static Match LoadMatch(string time)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("CharactersData");
+            var collection = database.GetCollection<Match>("Matches");
+
+            return collection.Find(x => x.Time == time).FirstOrDefault();     
+        }
     }
 }

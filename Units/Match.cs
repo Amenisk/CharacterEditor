@@ -9,26 +9,30 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Core
 {
-    public class Game
+    public class Match
     {
         [BsonIgnoreIfDefault]
         public ObjectId _id;
-        public DateTime date { get; private set; }
-        public List<Character> FirstTeam { get; private set; } = new List<Character>();
-        public List<Character> SecondTeam { get; private set; } = new List<Character>();
+        public string Time { get; private set; }
+        public List<CharacterInfo> FirstTeam { get; private set; } = new List<CharacterInfo>();
+        public List<CharacterInfo> SecondTeam { get; private set; } = new List<CharacterInfo>();
 
-        public void AddCharacterToTeam(Character ch, int team)
+        public void SaveTime()
+        {
+            Time = DateTime.Now.ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
+        }
+        public void AddCharacterToTeam(CharacterInfo ch, int team)
         {
             if(team == 1) FirstTeam.Add(ch);
             else if (team == 2) SecondTeam.Add(ch);
         }
-        public void RemoveCharacterFromTeam(Character ch, int team)
+        public void RemoveCharacterFromTeam(string name, int team)
         {
             if (team == 1)
             {
                 foreach(var c in FirstTeam)
                 {
-                    if (ch.Name == c.Name)
+                    if (name == c.Name)
                     {
                         FirstTeam.Remove(c);
                         break;
@@ -39,19 +43,13 @@ namespace Core
             {
                 foreach (var c in SecondTeam)
                 {
-                    if (ch.Name == c.Name)
+                    if (name == c.Name)
                     {
                         SecondTeam.Remove(c);
                         break;
                     }
                 }
             }
-        }
-
-        public void ClearTeams()
-        {
-            FirstTeam.Clear();
-            SecondTeam.Clear();
         }
         public bool IsBalansed()
         {
@@ -68,11 +66,7 @@ namespace Core
                 lvls2 += ch.Level;
             }
 
-            return Math.Abs(lvls1 - lvls2) < 2;
-        }
-
-
-
-        
+            return Math.Abs((lvls1 - lvls2) / (FirstTeam.Count + SecondTeam.Count)) < 2;
+        }  
     }
 }
