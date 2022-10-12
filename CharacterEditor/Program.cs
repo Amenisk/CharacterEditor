@@ -11,7 +11,7 @@ namespace CharacterEditor
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new Game());
+            Application.Run(new CharacterEditor());
         }
     }
 }

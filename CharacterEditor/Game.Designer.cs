@@ -46,6 +46,7 @@
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnCharacter1 = new System.Windows.Forms.Button();
             this.btnCharacter2 = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAutoGeneration
@@ -230,11 +231,23 @@
             this.btnCharacter2.Visible = false;
             this.btnCharacter2.Click += new System.EventHandler(this.btnCharacter2_Click);
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRemove.Location = new System.Drawing.Point(661, 383);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(114, 44);
+            this.btnRemove.TabIndex = 51;
+            this.btnRemove.Text = "Close";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnCharacter2);
             this.Controls.Add(this.btnCharacter1);
             this.Controls.Add(this.btnReturn);
@@ -281,5 +294,6 @@
         private Button btnReturn;
         private Button btnCharacter1;
         private Button btnCharacter2;
+        private Button btnRemove;
     }
 }

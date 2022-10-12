@@ -83,6 +83,7 @@
             this.cmbHelmets = new System.Windows.Forms.ComboBox();
             this.btnSelectArmor = new System.Windows.Forms.Button();
             this.cmbArmors = new System.Windows.Forms.ComboBox();
+            this.btnGame = new System.Windows.Forms.Button();
             this.pnlMain.SuspendLayout();
             this.pnlCharacteristics.SuspendLayout();
             this.SuspendLayout();
@@ -668,11 +669,23 @@
             this.cmbArmors.Size = new System.Drawing.Size(156, 25);
             this.cmbArmors.TabIndex = 40;
             // 
+            // btnGame
+            // 
+            this.btnGame.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGame.Location = new System.Drawing.Point(419, 451);
+            this.btnGame.Name = "btnGame";
+            this.btnGame.Size = new System.Drawing.Size(96, 47);
+            this.btnGame.TabIndex = 42;
+            this.btnGame.Text = "Game";
+            this.btnGame.UseVisualStyleBackColor = true;
+            this.btnGame.Click += new System.EventHandler(this.btnGame_Click);
+            // 
             // CharacterEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(835, 510);
+            this.Controls.Add(this.btnGame);
             this.Controls.Add(this.btnSelectArmor);
             this.Controls.Add(this.cmbArmors);
             this.Controls.Add(this.btnSelecthelmet);
@@ -756,5 +769,6 @@
         private ComboBox cmbHelmets;
         private Button btnSelectArmor;
         private ComboBox cmbArmors;
+        private Button btnGame;
     }
 }

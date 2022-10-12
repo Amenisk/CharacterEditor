@@ -19,6 +19,11 @@ namespace CharacterEditor
             BsonClassMap.RegisterClassMap<Rogue>();
             BsonClassMap.RegisterClassMap<Warrior>();
         }
+
+        public CharacterEditor(bool nothing)
+        {
+            InitializeComponent();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             cmbNames.Items.Clear();
@@ -407,6 +412,12 @@ namespace CharacterEditor
             {
                 CalculateBuffsFromItem(item, true);
             }
+        }
+
+        private void btnGame_Click(object sender, EventArgs e)
+        {
+            Game newForm = new Game();
+            newForm.Show();
         }
     }
 }

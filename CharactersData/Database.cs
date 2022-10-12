@@ -2,6 +2,7 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Xml.Linq;
+using static MongoDB.Bson.Serialization.Serializers.SerializerHelper;
 
 namespace CharactersData
 {
@@ -213,6 +214,44 @@ namespace CharactersData
             var collection = database.GetCollection<Match>("Matches");
 
             return collection.Find(x => x.Time == time).FirstOrDefault();     
+        }
+
+        public static CharacterInfo GetRandomCharacter(List<string> names)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("CharactersData");
+            var collection = database.GetCollection<Character>("Characters");
+            List<Character> characters = collection.Find
+                (x => !names.Contains(x.Name)).ToList<Character>();
+
+            return ReturnCharacterInfo(characters);  
+        }
+
+        public static CharacterInfo GetCharacterWithParams(List<string> names, int lvl)
+        {
+            var client = new MongoClient("mongodb://localhost");
+            var database = client.GetDatabase("CharactersData");
+            var collection = database.GetCollection<Character>("Characters");
+            List<Character> characters = collection.Find(x => !names.Contains(x.Name)
+                && x.Level >= lvl - 2 && x.Level <= lvl + 2).ToList<Character>();
+
+            return ReturnCharacterInfo(characters);
+        }
+
+        private static CharacterInfo ReturnCharacterInfo(List<Character> characters)
+        {
+            if (characters.Count != 0)
+            {
+                Random rnd = new Random();
+                Character ch;
+                int number = rnd.Next(0, characters.Count);
+                ch = characters.Skip(number).First();
+                return new CharacterInfo(ch.Name, ch.Level);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

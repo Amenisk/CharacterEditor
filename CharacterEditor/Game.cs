@@ -21,7 +21,26 @@ namespace CharacterEditor
         }
         private void btnAutoGeneration_Click(object sender, EventArgs e)
         {
+            CharacterInfo ch1;
+            CharacterInfo ch2;
 
+            while ((ch1 = Database.GetRandomCharacter
+                (GetNameList())) != null && lbFirstTeam.Items.Count < 6)
+            {
+                lbFirstTeam.Items.Add(ch1.Name);
+                if ((ch2 = Database.GetCharacterWithParams
+                    (GetNameList(), ch1.Level)) == null)
+                {
+                    lbFirstTeam.Items.Remove(ch1.Name);
+                    break;
+                }
+
+                lbSecondTeam.Items.Add(ch2.Name);
+                match.AddCharacterToTeam(ch1, 1);
+                match.AddCharacterToTeam(ch2, 2);
+            }
+
+            IsBalansed();
         }
         private void Match_Load(object sender, EventArgs e)
         {
@@ -123,9 +142,9 @@ namespace CharacterEditor
             {
                 match.SaveTime();
                 Database.SaveMatch(match);
-                match = new Match();
                 Match_Load(sender, e);
                 LoadMatches();
+                match = new Match();
             }
             else
             {
@@ -149,7 +168,8 @@ namespace CharacterEditor
         {
             if(cmbMatches.SelectedItem != null)
             {
-                match = Database.LoadMatch((string) cmbMatches.SelectedItem);
+                match = Database.LoadMatch((string)cmbMatches.SelectedItem);
+        
                 Match_Load(sender, e);
                 OpenButtonsAndComboBoxes(false);
 
@@ -184,6 +204,7 @@ namespace CharacterEditor
         {
             Match_Load(sender, e);
             OpenButtonsAndComboBoxes(true);
+            match = new Match();
         }
 
         private void btnCharacter1_Click(object sender, EventArgs e)
@@ -204,6 +225,28 @@ namespace CharacterEditor
                 (Database.FindByName((string)lbSecondTeam.SelectedItem));
                 newForm.Show();
             }
+        }
+
+        private List<string> GetNameList()
+        {
+            List<string> names = new List<string>();
+
+            foreach(var name in lbFirstTeam.Items)
+            {
+                names.Add((string) name);
+            }
+
+            foreach (var name in lbSecondTeam.Items)
+            {
+                names.Add((string) name);
+            }
+
+            return names;
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
