@@ -268,6 +268,7 @@
             this.Controls.Add(this.lbSecondTeam);
             this.Name = "Game";
             this.Text = "Match";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game_FormClosed);
             this.Load += new System.EventHandler(this.Match_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -15,14 +15,19 @@ namespace CharacterEditor
     public partial class Game : Form
     {
         private Match match = new Match();
-        public Game()
+        CharacterEditor form;
+        public Game(CharacterEditor form)
         {
             InitializeComponent();
+            this.form = form;
         }
         private void btnAutoGeneration_Click(object sender, EventArgs e)
         {
             CharacterInfo ch1;
             CharacterInfo ch2;
+
+            ClearForm();
+            match = new Match();
 
             while ((ch1 = Database.GetRandomCharacter
                 (GetNameList())) != null && lbFirstTeam.Items.Count < 6)
@@ -41,6 +46,7 @@ namespace CharacterEditor
             }
 
             IsBalansed();
+
         }
         private void Match_Load(object sender, EventArgs e)
         {
@@ -118,6 +124,14 @@ namespace CharacterEditor
 
         private void IsBalansed()
         {
+            if(lbFirstTeam.Items.Count == 0 
+                && lbSecondTeam.Items.Count == 0)
+            {
+                tbIsBalansed.Text = "";
+                tbIsBalansed.BackColor = Color.LightGray;
+                return;
+            }
+
             if(match.IsBalansed())
             {
                 tbIsBalansed.Text = "Teams are balanced";
@@ -244,9 +258,31 @@ namespace CharacterEditor
             return names;
         }
 
+        private void ChangeNameList(List<string> names)
+        {
+            foreach(var name in names)
+            {
+                if(lbFirstTeam.Items.Contains(name))
+                {
+                    lbFirstTeam.Items.Remove(name);
+                }
+
+                if (lbSecondTeam.Items.Contains(name))
+                {
+                    lbSecondTeam.Items.Remove(name);
+                }
+            }
+        }
+
         private void btnRemove_Click(object sender, EventArgs e)
         {
             this.Close();
+            form.Show();
+        }
+
+        private void Game_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            form.Show();
         }
     }
 }

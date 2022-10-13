@@ -13,6 +13,10 @@ namespace Core
     {
         [BsonIgnoreIfDefault]
         public ObjectId _id;
+
+        private int _maxBalanceDifference = 2;
+        private int _maxCountCharacters = 6;
+
         public string Time { get; private set; }
         public List<CharacterInfo> FirstTeam { get; private set; } = new List<CharacterInfo>();
         public List<CharacterInfo> SecondTeam { get; private set; } = new List<CharacterInfo>();
@@ -66,7 +70,9 @@ namespace Core
                 lvls2 += ch.Level;
             }
 
-            return Math.Abs((lvls1 - lvls2) / (FirstTeam.Count + SecondTeam.Count)) < 2;
+            return Math.Abs(lvls1 / _maxCountCharacters 
+                - lvls2 / _maxCountCharacters) < _maxBalanceDifference
+                && lvls1 != 0 && lvls2 != 0;
         }  
     }
 }

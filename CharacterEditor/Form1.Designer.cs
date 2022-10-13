@@ -526,6 +526,7 @@
             this.tbNextLvlPoints.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbNextLvlPoints.Location = new System.Drawing.Point(159, 35);
             this.tbNextLvlPoints.Name = "tbNextLvlPoints";
+            this.tbNextLvlPoints.ReadOnly = true;
             this.tbNextLvlPoints.Size = new System.Drawing.Size(74, 18);
             this.tbNextLvlPoints.TabIndex = 30;
             // 
@@ -535,6 +536,7 @@
             this.tbLvlPoints.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbLvlPoints.Location = new System.Drawing.Point(63, 34);
             this.tbLvlPoints.Name = "tbLvlPoints";
+            this.tbLvlPoints.ReadOnly = true;
             this.tbLvlPoints.Size = new System.Drawing.Size(74, 18);
             this.tbLvlPoints.TabIndex = 29;
             this.tbLvlPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

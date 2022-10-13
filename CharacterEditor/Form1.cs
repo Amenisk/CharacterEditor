@@ -416,8 +416,9 @@ namespace CharacterEditor
 
         private void btnGame_Click(object sender, EventArgs e)
         {
-            Game newForm = new Game();
-            newForm.Show();
+            this.Hide();
+            Game newForm = new Game(this);
+            newForm.ShowDialog();
         }
     }
 }
