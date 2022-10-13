@@ -14,7 +14,7 @@ namespace Core
         [BsonIgnoreIfDefault]
         public ObjectId _id;
 
-        private int _maxBalanceDifference = 2;
+        private double _maxBalanceDifference = 1.5;
         private int _maxCountCharacters = 6;
 
         public string Time { get; private set; }

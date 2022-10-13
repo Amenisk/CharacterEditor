@@ -233,7 +233,7 @@ namespace CharactersData
             var database = client.GetDatabase("CharactersData");
             var collection = database.GetCollection<Character>("Characters");
             List<Character> characters = collection.Find(x => !names.Contains(x.Name)
-                && x.Level >= lvl - 2 && x.Level <= lvl + 2).ToList<Character>();
+                && x.Level >= lvl - 1 && x.Level <= lvl + 1).ToList<Character>();
 
             return ReturnCharacterInfo(characters);
         }
